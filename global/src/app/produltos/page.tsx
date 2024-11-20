@@ -68,69 +68,75 @@ export default function Produtos() {
     }
 
     return (
-        <div>
-            <h1>Produtos</h1>
-            <div>
-                <h2>Cadastro de Produtos</h2>
+        <div style={{ padding: '50px 10%', backgroundColor: '#fff' }}>
+            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#000', marginBottom: '30px' }}>Produtos</h1>
+            <div style={{ backgroundColor: '#fff', padding: '40px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}>
+                <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#000', marginBottom: '20px' }}>Cadastro de Produtos</h2>
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label htmlFor="idNn">Eletrodoméstico</label>
+                    <div style={{ marginBottom: '20px' }}>
+                        <label htmlFor="idNn" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Eletrodoméstico</label>
                         <input type="text" name="eletrodomestico" id="idNn" value={produto.eletrodomestico}
-                            onChange={(evento) => handleChange(evento)} placeholder="Digite o eletrodoméstico" required />
+                            onChange={(evento) => handleChange(evento)} placeholder="Digite o eletrodoméstico" required
+                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
-                    <div>
-                        <label htmlFor="idMa">Marca</label>
-                        <input type="text" name="marca" id="idMa" value={produto.marca} onChange={(evento) => handleChange(evento)} placeholder="Digite a marca" required />
+                    <div style={{ marginBottom: '20px' }}>
+                        <label htmlFor="idMa" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Marca</label>
+                        <input type="text" name="marca" id="idMa" value={produto.marca} onChange={(evento) => handleChange(evento)} placeholder="Digite a marca" required
+                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
-                    <div>
-                        <label htmlFor="idEf">Eficiência energética</label>
-                        <input type="text" name="eficiencia_energetica" id="idEf" value={produto.eficiencia_energetica} onChange={(evento) => handleChange(evento)} placeholder="Digite a eficiência energética" required />
+                    <div style={{ marginBottom: '20px' }}>
+                        <label htmlFor="idEf" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Eficiência energética</label>
+                        <input type="text" name="eficiencia_energetica" id="idEf" value={produto.eficiencia_energetica} onChange={(evento) => handleChange(evento)} placeholder="Digite a eficiência energética" required
+                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
-                    <div>
-                        <label htmlFor="idCs">Consumo energético</label>
-                        <input type="number" name="consumo_energetico" id="idCs" value={produto.consumo_energetico} onChange={(evento) => handleChange(evento)} placeholder="Digite o consumo energético" required />
+                    <div style={{ marginBottom: '20px' }}>
+                        <label htmlFor="idCs" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Consumo energético</label>
+                        <input type="number" name="consumo_energetico" id="idCs" value={produto.consumo_energetico} onChange={(evento) => handleChange(evento)} placeholder="Digite o consumo energético" required
+                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
-                    <div>
-                        <label htmlFor="idCpf">CPF</label>
-                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF" required />
+                    <div style={{ marginBottom: '20px' }}>
+                        <label htmlFor="idCpf" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>CPF</label>
+                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF" required
+                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
-                    <div>
+                    <div style={{ textAlign: 'right' }}>
                         <button type="submit"
-                            className="block ms-auto me-6 bg-[#4CF214] hover:bg-[#4CF214] text-white font-bold py-2 px-4 rounded">Cadastra</button>
+                            style={{ backgroundColor: '#008000', color: '#fff', fontSize: '1.25rem', fontWeight: 'bold', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>
+                            Cadastrar
+                        </button>
                     </div>
                 </form>
             </div>
-            <h2>Listagem de Produtos</h2>
-            <div>
-                <table>
+            <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#000', marginTop: '50px' }}>Listagem de Produtos</h2>
+            <div style={{ overflowX: 'auto', marginTop: '20px' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
-                        <tr>
-                            <th>Eletrodoméstico</th>
-                            <th>Marca</th>
-                            <th>Eficiência energética</th>
-                            <th>Consumo energético</th>
-                            <th>CPF</th>
-                            <th>Editar | Excluir</th>
+                        <tr style={{ backgroundColor: '#f0f0f0' }}>
+                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Eletrodoméstico</th>
+                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Marca</th>
+                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Eficiência energética</th>
+                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Consumo energético</th>
+                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>CPF</th>
+                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Editar | Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
-                            // Aguardando a chamada da API antes de renderizar os produtos
                             produtos.length > 0 && produtos.map(p => (
                                 <tr key={p.cpf_cliente}>
-                                    <td>{p.eletrodomestico}</td>
-                                    <td>{p.marca}</td>
-                                    <td>{p.eficiencia_energetica}</td>
-                                    <td>{p.consumo_energetico}</td>
-                                    <td>{p.cpf_cliente}</td>
-                                    <td><Link href="/">Editar</Link>| <Link href="/">Excluir</Link></td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eletrodomestico}</td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.marca}</td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eficiencia_energetica}</td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.consumo_energetico}</td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.cpf_cliente}</td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}><Link href="/">Editar</Link> | <Link href="/">Excluir</Link></td>
                                 </tr>
                             ))
                         }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colSpan={5}>Total de informacoes: -{produto.cpf_cliente}</td>
+                            <td colSpan={6} style={{ padding: '15px', textAlign: 'right', fontWeight: 'bold' }}>Total de informações: {produtos.length}</td>
                         </tr>
                     </tfoot>
                 </table>

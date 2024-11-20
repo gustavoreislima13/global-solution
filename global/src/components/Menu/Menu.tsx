@@ -11,12 +11,13 @@ export default function Menu() {
           <Link href="/" legacyBehavior>
             <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}>Home</a>
           </Link>
-          <Link href="/login" legacyBehavior>
-            <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}>Login</a>
-          </Link>
           <Link href="/integrantes" legacyBehavior>
             <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}>Integrantes</a>
           </Link>
+          <Link href="/login" legacyBehavior>
+            <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}>Login</a>
+          </Link>
+          
         </div>
       </div>
     </nav>
