@@ -44,7 +44,7 @@ const Integrantes: React.FC = () => {
   return (
     <div style={{ textAlign: 'center', padding: '2rem', backgroundColor: '#fff' }}>
       <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Integrantes</h1>
-      <p style={{ fontSize: '1.2rem', color: '#555', marginBottom: '2rem' }}>Na Porto Seguro, acreditamos nas pessoas que fazem acontecer!</p>
+      <p style={{ fontSize: '1.2rem', color: '#555', marginBottom: '2rem' }}>Nosso compromisso é com a transparência e a sustentabilidade.</p>
       <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
         {integrantes.map((integrante, index) => (
           <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>

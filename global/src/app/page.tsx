@@ -2,16 +2,10 @@
 
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import imagem1 from "@/img/01.png"
-import verificada from "@/img/validada.png"
-import redonda from "@/img/imagem 2.jpg"
-import redonda01 from "@/img/imagem 3.jpg"
-
-
-
-
-
-
+import imagem1 from "@/img/01.png";
+import verificada from "@/img/validada.png";
+import redonda from "@/img/imagem_2.png";
+import redonda01 from "@/img/imagem_3.png";
 
 const DigitalProductDesignAgency: React.FC = () => {
   useEffect(() => {
@@ -31,10 +25,10 @@ const DigitalProductDesignAgency: React.FC = () => {
       }}>
         <div style={{ maxWidth: '500px', marginRight: '40%' }}>
           <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.2', color: '#000' }}>
-            Digital <span style={{ color: '#008000' }}>product</span> design agency {/* Alterado para verde */}
+            Revolucionando <span style={{ color: '#008000' }}>o consumo </span>de energia!  {/* Alterado para verde */}
           </h1>
           <p style={{ fontSize: '1.5rem', color: '#000', margin: '30px 0' }}>
-            Create live segments and target the right people for messages based on their behaviors.
+            Com nossas ferramentas inteligentes, fornecemos insights valiosos que ajudam a reduzir custos e promover práticas ecológicas, trazendo maior controle e visibilidade sobre o uso de energia elétrica.
           </p>
           <button
             style={{
@@ -71,20 +65,41 @@ const DigitalProductDesignAgency: React.FC = () => {
         padding: '100px 10%'
       }}>
         <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px', color: '#000' }}>
-          Our included <span style={{ color: '#008000' }}>service</span>. {/* Alterado para verde */}
+          Por que escolher <span style={{ color: '#008000' }}>o Smart Energy?</span> {/* Alterado para verde */}
         </h2>
         <p style={{ fontSize: '1.25rem', color: '#000', marginBottom: '50px' }}>
-          Aliquam tristique libero at dui sodales, et placerat orci lobortis. Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem.
+        Nosso compromisso é com a transparência e a sustentabilidade.
         </p>
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(4, 1fr)',
           gap: '30px'
         }}>
-          {[...Array(4)].map((_, index) => (
+          {[
+            {
+              title: 'Tecnologia Avançada',
+              description: 'Utilizamos tecnologias de ponta para oferecer monitoramento em tempo real e controle do consumo de energia.',
+              image: verificada
+            },
+            {
+              title: 'Foco em Sustentabilidade',
+              description: 'Nossa plataforma contribui diretamente para a adoção de práticas sustentáveis, ajudando empresas e residências a alcançarem suas metas ambientais.',
+              image: verificada
+            },
+            {
+              title: 'Modelo B2B Integrado',
+              description: 'Ideal para concessionárias, construtoras e incorporadoras que desejam agregar valor aos seus serviços, oferecendo aos clientes finais uma solução diferenciada.',
+              image: verificada
+            },
+            {
+              title: 'Baixo Custo de Manutenção',
+              description: 'Nossa solução oferece um custo de manutenção reduzido, proporcionando economia a longo prazo para nossos clientes.',
+              image: verificada
+            }
+          ].map((card, index) => (
             <div key={index} style={{
               padding: '40px',
-              backgroundColor: '#fff',  // Fundo alterado para branco
+              backgroundColor: '#fff',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               borderRadius: '10px',
               textAlign: 'center',
@@ -93,9 +108,9 @@ const DigitalProductDesignAgency: React.FC = () => {
               alignItems: 'center',
               justifyContent: 'center'
             }}>
-              <Image src={verificada} alt="Service Icon" width={80} height={80} style={{ marginBottom: '20px' }} />
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Service Title</h3>
-              <p style={{ color: '#000' }}>We design professional looking yet simple Logo.</p>
+              <Image src={card.image} alt="Service Icon" width={80} height={80} style={{ marginBottom: '20px' }} />
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>{card.title}</h3>
+              <p style={{ color: '#000' }}>{card.description}</p>
             </div>
           ))}
         </div>
@@ -116,9 +131,9 @@ const DigitalProductDesignAgency: React.FC = () => {
             <Image src={redonda} alt="Cover Your Everyday Expenses" style={{ maxWidth: '2000px' }} />
           </div>
           <div>
-            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Cover Your Everyday Expenses</h3>
+            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Redução de Custos</h3>
             <p style={{ fontSize: '1.25rem', color: '#000' }}>
-              Inspiration comes in many ways and you like to save everything from, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            Com o Smart Energy, você terá controle total sobre o seu consumo de energia, permitindo identificar oportunidades para reduzir gastos de forma significativa. Nossas ferramentas ajudam a monitorar e entender os padrões de consumo, possibilitando ajustes que se traduzem em economia real para o seu negócio ou residência.
             </p>
           </div>
         </div>
@@ -132,15 +147,13 @@ const DigitalProductDesignAgency: React.FC = () => {
             <Image src={redonda01} alt="We Offer Low Fees That Are Transparent" style={{ maxWidth: '2000px' }} />
           </div>
           <div>
-            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>We Offer Low Fees That Are Transparent</h3>
+            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Transparência</h3>
             <p style={{ fontSize: '1.25rem', color: '#000' }}>
-              Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into the development of the asset through its charitable foundation.
+            Nossa plataforma foi projetada para ser intuitiva e fácil de usar, garantindo que você tenha total clareza sobre como a energia está sendo consumida. Fornecemos relatórios detalhados e informações acessíveis, permitindo que você entenda e gerencie seu consumo com total transparência e confiança.
             </p>
           </div>
         </div>
       </section>
-
-     
     </div>
   );
 };
