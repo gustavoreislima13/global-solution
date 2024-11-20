@@ -8,7 +8,7 @@ import Image from "next/image"
 export default function Rodape(){
     return(
         <footer>
-            <h2>Rodape</h2>
+            
             <div>
                 <Image src={instagram} alt="Logo instagram"/>
                 <Image src={twitterx} alt="Logo instagram"/>
