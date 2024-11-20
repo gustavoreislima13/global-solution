@@ -1,102 +1,143 @@
-import Image from 'next/image';
+"use client";
 
-export default function Home() {
+import React, { useEffect } from 'react';
+import Image from 'next/image';
+import imagem1 from "@/img/01.png"
+import verificada from "@/img/validada.png"
+import redonda from "@/img/imagem 2.jpg"
+import redonda01 from "@/img/imagem 3.jpg"
+
+
+
+
+
+
+
+const DigitalProductDesignAgency: React.FC = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
-    <main>
-      <div className='container mx-auto py-16'>
-        <section className='flex justify-between items-center'>
-          <div className='max-w-lg'>
-            <h1 className='text-5xl font-bold leading-tight text-black mb-6'>
-              Atendimento com <span className='text-green-700'>Inteligência Artificial</span>
-            </h1>
-            <p className='text-xl text-black mb-8'>
-              Atendimento inovador com IA. Soluções ágeis e personalizadas aprendendo continuamente para oferecer o melhor serviço!
-            </p>
-            <button className='bg-green-700 text-white font-bold py-4 px-8 rounded-full shadow-md hover:scale-105 transition-transform'>
-              Saiba mais
-            </button>
+    <div style={{
+      padding: '50px 10%',
+      backgroundColor: '#fff'  // Fundo alterado para branco
+    }}>
+      <section style={{
+        display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        height: '80vh'
+      }}>
+        <div style={{ maxWidth: '500px', marginRight: '40%' }}>
+          <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.2', color: '#000' }}>
+            Digital <span style={{ color: '#008000' }}>product</span> design agency {/* Alterado para verde */}
+          </h1>
+          <p style={{ fontSize: '1.5rem', color: '#000', margin: '30px 0' }}>
+            Create live segments and target the right people for messages based on their behaviors.
+          </p>
+          <button style={{
+            padding: '20px 40px',
+            fontSize: '1.25rem',
+            fontWeight: 'bold',
+            backgroundColor: '#008000',  // Alterado para verde
+            color: '#fff',
+            border: '2px solid #008000',  // Alterado para verde
+            borderRadius: '30px',
+            cursor: 'pointer',
+            boxShadow: '0 4px 15px rgba(0, 128, 0, 0.4)',  // Alterado para verde
+            transition: 'transform 0.3s',
+            marginTop: '20px'
+          }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
+            Get Started
+          </button>
+        </div>
+        <div>
+          <Image
+            src={imagem1}
+            alt="People collaborating on a design project"
+            style={{ maxWidth: '500px', borderRadius: '20px' }}
+          />
+        </div>
+      </section>
+
+      <section style={{
+        backgroundColor: '#fff',  // Fundo alterado para branco
+        padding: '100px 10%'
+      }}>
+        <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px', color: '#000' }}>
+          Our included <span style={{ color: '#008000' }}>service</span>. {/* Alterado para verde */}
+        </h2>
+        <p style={{ fontSize: '1.25rem', color: '#000', marginBottom: '50px' }}>
+          Aliquam tristique libero at dui sodales, et placerat orci lobortis. Donec metus lorem, vulputate at sapien sit amet, auctor iaculis lorem.
+        </p>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(4, 1fr)',
+          gap: '30px'
+        }}>
+          {[...Array(4)].map((_, index) => (
+            <div key={index} style={{
+              padding: '40px',
+              backgroundColor: '#fff',  // Fundo alterado para branco
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              borderRadius: '10px',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <Image src={verificada} alt="Service Icon" width={80} height={80} style={{ marginBottom: '20px' }} />
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Service Title</h3>
+              <p style={{ color: '#000' }}>We design professional looking yet simple Logo.</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section style={{
+        padding: '100px 10%',
+        display: 'flex',
+        flexDirection: 'column',
+        gap: '80px'
+      }}>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '40px'
+        }}>
+          <div>
+            <Image src={redonda} alt="Cover Your Everyday Expenses" style={{ maxWidth: '2000px' }} />
           </div>
           <div>
-            <Image src='/path/to/image.png' alt='Imagem de Atendimento' width={500} height={500} />
+            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Cover Your Everyday Expenses</h3>
+            <p style={{ fontSize: '1.25rem', color: '#000' }}>
+              Inspiration comes in many ways and you like to save everything from, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+            </p>
           </div>
-        </section>
-
-        <section className='mt-20'>
-          <div className='grid grid-cols-4 gap-8'>
-            <div className='bg-white shadow-lg rounded-lg p-8 text-center'>
-              <Image src='/path/to/ubi-image.png' alt='UBI' width={100} height={100} className='mx-auto mb-6' />
-              <h3 className='text-2xl font-bold mb-4'>UBI</h3>
-              <p className='text-black'>Economize em sua apólice de seguro com descontos.</p>
-            </div>
-            <div className='bg-white shadow-lg rounded-lg p-8 text-center'>
-              <Image src='/path/to/assistencia-image.png' alt='Assistência 24h' width={100} height={100} className='mx-auto mb-6' />
-              <h3 className='text-2xl font-bold mb-4'>Assistência 24h</h3>
-              <p className='text-black'>Oferecemos suporte emergencial 24/7 adaptado.</p>
-            </div>
-            <div className='bg-white shadow-lg rounded-lg p-8 text-center'>
-              <Image src='/path/to/preventiva-image.png' alt='Preventiva' width={100} height={100} className='mx-auto mb-6' />
-              <h3 className='text-2xl font-bold mb-4'>Preventiva</h3>
-              <p className='text-black'>Mantenha seu carro em perfeitas condições.</p>
-            </div>
-            <div className='bg-white shadow-lg rounded-lg p-8 text-center'>
-              <Image src='/path/to/seguros-image.png' alt='Seguros com IA' width={100} height={100} className='mx-auto mb-6' />
-              <h3 className='text-2xl font-bold mb-4'>Seguros com IA</h3>
-              <p className='text-black'>Recursos de IA para otimizar a interação.</p>
-            </div>
-          </div>
-        </section>
-
-      <section className='flex justify-between items-center mt-20'>
-        <div>
-          <Image src='/path/to/vantagem-porto-image.png' alt='Vantagem Porto Seguro' width={400} height={300} />
         </div>
-        <div className='max-w-lg'>
-          <h3 className='text-2xl font-semibold text-black'>Seguradora</h3>
-          <h1 className='text-4xl font-bold text-black mb-6'>Vantagem Porto Seguro</h1>
-          <ul className='list-none pl-0 space-y-4 text-lg'>
-            <li><span className='font-bold text-black'>✓</span> Suporte contínuo para emergências e dúvidas, disponível 24/7.</li>
-            <li><span className='font-bold text-blue-500'>✓</span> Ofertas especiais e benefícios.</li>
-            <li><span className='font-bold text-blue-500'>✓</span> Recompensas por permanência.</li>
-            <li><span className='font-bold text-blue-500'>✓</span> Atendimento personalizado com IA.</li>
-            <li><span className='font-bold text-blue-500'>✓</span> Aplicativo móvel intuitivo com IA.</li>
-            <li><span className='font-bold text-blue-500'>✓</span> Coberturas flexíveis e customizáveis.</li>
-          </ul>
-          <div className='flex mt-8'>
-            <button className='bg-green-700 text-white font-bold py-3 px-6 rounded-full shadow-md mr-4'>Fale conosco</button>
-            <button className='bg-white text-green-700 font-bold py-3 px-6 rounded-full border-2 border-green-700 shadow-md'>Veja mais</button>
+        <div style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '40px',
+          flexDirection: 'row-reverse'
+        }}>
+          <div>
+            <Image src={redonda01} alt="We Offer Low Fees That Are Transparent" style={{ maxWidth: '2000px' }} />
+          </div>
+          <div>
+            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>We Offer Low Fees That Are Transparent</h3>
+            <p style={{ fontSize: '1.25rem', color: '#000' }}>
+              Each time a digital asset is purchased or sold, Sequoir donates a percentage of the fees back into the development of the asset through its charitable foundation.
+            </p>
           </div>
         </div>
       </section>
 
-      <section className='text-center mt-20'>
-        <h2 className='text-4xl font-bold mb-8'>Integrantes</h2>
-        <p className='text-xl mb-12'>Na Porto Seguro, acreditamos nas pessoas que fazem acontecer!</p>
-        <div className='flex justify-center gap-8'>
-          {[...Array(3)].map((_, index) => (
-            <div key={index} className='text-center'>
-              <Image src='/path/to/member-image.png' alt='Integrante' width={150} height={150} className='mx-auto rounded-full' />
-              <h3 className='text-xl font-bold mt-4'>{index === 0 ? 'Gustavo Lima' : index === 1 ? 'Leo' : 'Julia'}</h3>
-            </div>
-          ))}
-        </div>
-        <p className='text-xl mt-8'>Na Porto Seguro, acreditamos nas pessoas que fazem acontecer!</p>
-      </section>
-
-      <section className='text-center mt-20'>
-        <h2 className='text-4xl font-bold mb-8'>Feedback de nossos clientes</h2>
-        <p className='text-xl mb-12'>Sempre fazendo o melhor!</p>
-        <div className='flex justify-center gap-8'>
-          {[...Array(2)].map((_, index) => (
-            <div key={index} className='text-center'>
-              <Image src='/path/to/client-image.png' alt='Cliente' width={150} height={150} className='mx-auto rounded-full' />
-              <h3 className='text-xl font-bold mt-4'>Gustavo Lima</h3>
-              <p className='text-black mt-2'>Na Porto Seguro, acreditamos nas pessoas que fazem acontecer!</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
+     
     </div>
-  </main>
   );
-}
+};
+
+export default DigitalProductDesignAgency;
