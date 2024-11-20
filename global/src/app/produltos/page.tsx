@@ -11,7 +11,7 @@ export default function Produtos() {
     const [produtos, setProdutos] = useState<TipoProdulto[]>([])
     const chamadaApi = async () => {
         try {
-            const response = await fetch(""); // Adicione a URL correta da API aqui.
+            const response = await fetch(" http://localhost:8080/smartenergy/eletro"); // Adicione a URL correta da API aqui.
             const data = await response.json();
             setProdutos(data);
         } catch (error) {

@@ -21,7 +21,7 @@ const RegistrationPage: React.FC = () => {
     const handleSubmit = async (event: React.FormEvent) => {
         event.preventDefault();
         try {
-            const url = isSignUp ? "/api/admin/register" : "/api/admin/login";
+            const url = isSignUp ? "http://localhost:8080/smartenergy/admin" : "http://localhost:8080/smartenergy/admin";
             const response = await fetch(url, {
                 method: "POST",
                 headers: {

@@ -18,7 +18,7 @@ export default function Clientes() {
   const [clientes, setClientes] = useState<TipoCliente[]>([]);
   const chamadaApi = async () => {
     try {
-      const response = await fetch("/api/clientes"); // Adicione a URL correta da API aqui.
+      const response = await fetch(" http://localhost:8080/smartenergy/cliente"); // Adicione a URL correta da API aqui.
       const data = await response.json();
       setClientes(data);
     } catch (error) {
