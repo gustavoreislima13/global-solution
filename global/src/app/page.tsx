@@ -56,7 +56,7 @@ const DigitalProductDesignAgency: React.FC = () => {
           <Image
             src={imagem1}
             alt="People collaborating on a design project"
-            style={{ maxWidth: '500px', borderRadius: '20px' }}
+            style={{ maxWidth: '500px', borderRadius: '200px' }}
           />
         </div>
       </section>
