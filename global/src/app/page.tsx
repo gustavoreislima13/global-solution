@@ -36,20 +36,25 @@ const DigitalProductDesignAgency: React.FC = () => {
           <p style={{ fontSize: '1.5rem', color: '#000', margin: '30px 0' }}>
             Create live segments and target the right people for messages based on their behaviors.
           </p>
-          <button style={{
-            padding: '20px 40px',
-            fontSize: '1.25rem',
-            fontWeight: 'bold',
-            backgroundColor: '#008000',  // Alterado para verde
-            color: '#fff',
-            border: '2px solid #008000',  // Alterado para verde
-            borderRadius: '30px',
-            cursor: 'pointer',
-            boxShadow: '0 4px 15px rgba(0, 128, 0, 0.4)',  // Alterado para verde
-            transition: 'transform 0.3s',
-            marginTop: '20px'
-          }} onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'} onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}>
-            Get Started
+          <button
+            style={{
+              padding: '20px 40px',
+              fontSize: '1.25rem',
+              fontWeight: 'bold',
+              backgroundColor: '#008000',  // Alterado para verde
+              color: '#fff',
+              border: '2px solid #008000',  // Alterado para verde
+              borderRadius: '30px',
+              cursor: 'pointer',
+              boxShadow: '0 4px 15px rgba(0, 128, 0, 0.4)',  // Alterado para verde
+              transition: 'transform 0.3s',
+              marginTop: '20px'
+            }}
+            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+            onClick={() => window.location.href = "/login"} // Ao clicar redireciona para a página /login
+          >
+            Login
           </button>
         </div>
         <div>
