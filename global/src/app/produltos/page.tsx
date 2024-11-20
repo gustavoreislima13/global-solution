@@ -1,4 +1,5 @@
 "use client"
+import { TipoProdulto } from "@/types/types";
 import { headers } from "next/headers";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -7,7 +8,7 @@ export default function Produtos() {
 
     const navigate = useRouter()
 
-    const [produto, setProduto] = useState<TipoProduto>({
+    const [produto, setProduto] = useState<TipoProdulto>({
         eletrodomestico: "",
         marca: "",
         eficiencia_energetica: "",
