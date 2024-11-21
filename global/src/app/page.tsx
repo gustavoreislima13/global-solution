@@ -14,66 +14,88 @@ const DigitalProductDesignAgency: React.FC = () => {
 
   return (
     <div style={{
-      padding: '50px 10%',
-      backgroundColor: '#fff'  // Fundo alterado para branco
+      padding: '20px',
+      backgroundColor: '#fff',
     }}>
       <section style={{
         display: 'flex',
-        justifyContent: 'space-between',
+        flexDirection: 'column',
         alignItems: 'center',
-        height: '80vh'
+        textAlign: 'center',
+        height: 'auto',
+        gap: '20px',
       }}>
-        <div style={{ maxWidth: '500px', marginRight: '40%' }}>
-          <h1 style={{ fontSize: '3.5rem', fontWeight: 'bold', lineHeight: '1.2', color: '#000' }}>
-            Revolucionando <span style={{ color: '#008000' }}>o consumo </span>de energia!  {/* Alterado para verde */}
+        <div style={{ maxWidth: '600px', margin: '0 auto' }}>
+          <h1 style={{ fontSize: '2.5rem', fontWeight: 'bold', lineHeight: '1.2', color: '#000' }}>
+            Revolucionando <span style={{ color: '#008000' }}>o consumo </span>de energia!
           </h1>
-          <p style={{ fontSize: '1.5rem', color: '#000', margin: '30px 0' }}>
+          <p style={{ fontSize: '1.25rem', color: '#000', margin: '20px 0' }}>
             Com nossas ferramentas inteligentes, fornecemos insights valiosos que ajudam a reduzir custos e promover práticas ecológicas, trazendo maior controle e visibilidade sobre o uso de energia elétrica.
           </p>
-          <button
-            style={{
-              padding: '20px 40px',
-              fontSize: '1.25rem',
-              fontWeight: 'bold',
-              backgroundColor: '#008000',  // Alterado para verde
-              color: '#fff',
-              border: '2px solid #008000',  // Alterado para verde
-              borderRadius: '30px',
-              cursor: 'pointer',
-              boxShadow: '0 4px 15px rgba(0, 128, 0, 0.4)',  // Alterado para verde
-              transition: 'transform 0.3s',
-              marginTop: '20px'
-            }}
-            onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
-            onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={() => window.location.href = "/login"} // Ao clicar redireciona para a página /login
-          >
-            Login
-          </button>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            <button
+              style={{
+                padding: '15px 30px',
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                backgroundColor: '#008000',
+                color: '#fff',
+                border: '2px solid #008000',
+                borderRadius: '30px',
+                cursor: 'pointer',
+                boxShadow: '0 4px 15px rgba(0, 128, 0, 0.4)',
+                transition: 'transform 0.3s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+              onClick={() => window.location.href = "/login"}
+            >
+              Login
+            </button>
+            <button
+              style={{
+                padding: '15px 30px',
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                backgroundColor: '#008000',
+                color: '#fff',
+                border: '2px solid #008000',
+                borderRadius: '30px',
+                cursor: 'pointer',
+                boxShadow: '0 4px 15px rgba(0, 128, 0, 0.4)',
+                transition: 'transform 0.3s',
+              }}
+              onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
+              onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
+              onClick={() => window.location.href = "/register"}
+            >
+              Cadastre-se
+            </button>
+          </div>
         </div>
         <div>
           <Image
             src={imagem1}
             alt="People collaborating on a design project"
-            style={{ maxWidth: '500px', borderRadius: '200px' }}
+            style={{ maxWidth: '100%', height: 'auto', borderRadius: '200px' }}
           />
         </div>
       </section>
 
       <section style={{
-        backgroundColor: '#fff',  // Fundo alterado para branco
-        padding: '100px 10%'
+        backgroundColor: '#fff',
+        padding: '50px 20px'
       }}>
-        <h2 style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '20px', color: '#000' }}>
-          Por que escolher <span style={{ color: '#008000' }}>o Smart Energy?</span> {/* Alterado para verde */}
+        <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '20px', color: '#000', textAlign: 'center' }}>
+          Por que escolher <span style={{ color: '#008000' }}>o Smart Energy?</span>
         </h2>
-        <p style={{ fontSize: '1.25rem', color: '#000', marginBottom: '50px' }}>
-        Nosso compromisso é com a transparência e a sustentabilidade.
+        <p style={{ fontSize: '1.25rem', color: '#000', marginBottom: '30px', textAlign: 'center' }}>
+          Nosso compromisso é com a transparência e a sustentabilidade.
         </p>
         <div style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gap: '30px'
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '20px'
         }}>
           {[
             {
@@ -98,7 +120,7 @@ const DigitalProductDesignAgency: React.FC = () => {
             }
           ].map((card, index) => (
             <div key={index} style={{
-              padding: '40px',
+              padding: '20px',
               backgroundColor: '#fff',
               boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
               borderRadius: '10px',
@@ -109,7 +131,7 @@ const DigitalProductDesignAgency: React.FC = () => {
               justifyContent: 'center'
             }}>
               <Image src={card.image} alt="Service Icon" width={80} height={80} style={{ marginBottom: '20px' }} />
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>{card.title}</h3>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>{card.title}</h3>
               <p style={{ color: '#000' }}>{card.description}</p>
             </div>
           ))}
@@ -117,39 +139,38 @@ const DigitalProductDesignAgency: React.FC = () => {
       </section>
 
       <section style={{
-        padding: '100px 10%',
+        padding: '50px 20px',
         display: 'flex',
         flexDirection: 'column',
-        gap: '80px'
+        gap: '40px'
       }}>
         <div style={{
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
-          gap: '40px'
+          textAlign: 'center',
+          gap: '20px'
         }}>
+          <Image src={redonda} alt="Cover Your Everyday Expenses" style={{ maxWidth: '100%', height: 'auto' }} />
           <div>
-            <Image src={redonda} alt="Cover Your Everyday Expenses" style={{ maxWidth: '2000px' }} />
-          </div>
-          <div>
-            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Redução de Custos</h3>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Redução de Custos</h3>
             <p style={{ fontSize: '1.25rem', color: '#000' }}>
-            Com o Smart Energy, você terá controle total sobre o seu consumo de energia, permitindo identificar oportunidades para reduzir gastos de forma significativa. Nossas ferramentas ajudam a monitorar e entender os padrões de consumo, possibilitando ajustes que se traduzem em economia real para o seu negócio ou residência.
+              Com o Smart Energy, você terá controle total sobre o seu consumo de energia, permitindo identificar oportunidades para reduzir gastos de forma significativa. Nossas ferramentas ajudam a monitorar e entender os padrões de consumo, possibilitando ajustes que se traduzem em economia real para o seu negócio ou residência.
             </p>
           </div>
         </div>
         <div style={{
           display: 'flex',
+          flexDirection: 'column',
           alignItems: 'center',
-          gap: '40px',
-          flexDirection: 'row-reverse'
+          textAlign: 'center',
+          gap: '20px'
         }}>
+          <Image src={redonda01} alt="We Offer Low Fees That Are Transparent" style={{ maxWidth: '100%', height: 'auto' }} />
           <div>
-            <Image src={redonda01} alt="We Offer Low Fees That Are Transparent" style={{ maxWidth: '2000px' }} />
-          </div>
-          <div>
-            <h3 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Transparência</h3>
+            <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '10px', color: '#000' }}>Transparência</h3>
             <p style={{ fontSize: '1.25rem', color: '#000' }}>
-            Nossa plataforma foi projetada para ser intuitiva e fácil de usar, garantindo que você tenha total clareza sobre como a energia está sendo consumida. Fornecemos relatórios detalhados e informações acessíveis, permitindo que você entenda e gerencie seu consumo com total transparência e confiança.
+              Nossa plataforma foi projetada para ser intuitiva e fácil de usar, garantindo que você tenha total clareza sobre como a energia está sendo consumida. Fornecemos relatórios detalhados e informações acessíveis, permitindo que você entenda e gerencie seu consumo com total transparência e confiança.
             </p>
           </div>
         </div>
