@@ -15,7 +15,7 @@ interface Integrante {
   linkedin: string;
 }
 
-const Integrantes: React.FC = () => {
+export default function Integrantes() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -67,6 +67,4 @@ const Integrantes: React.FC = () => {
       </div>
     </div>
   );
-};
-
-export default Integrantes;
+}

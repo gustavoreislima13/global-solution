@@ -4,11 +4,7 @@ import React, { useEffect } from 'react';
 import Clientes from "../cliente/page";
 import Produtos from "../produltos/page";
 
-const Dashboard: React.FC = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
+export default function Exemplo() {
   return (
     <div style={{
       padding: '50px 10%',
@@ -42,6 +38,4 @@ const Dashboard: React.FC = () => {
       </section>
     </div>
   );
-};
-
-export default Dashboard;
+}

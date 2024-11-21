@@ -1,9 +1,9 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
-const RegistrationPage: React.FC = () => {
+export default function RegistrationPage() {
     const router = useRouter();
     const [isSignUp, setIsSignUp] = useState(false);
     const [formData, setFormData] = useState({
@@ -108,6 +108,4 @@ const RegistrationPage: React.FC = () => {
             )}
         </div>
     );
-};
-
-export default RegistrationPage;
+}
