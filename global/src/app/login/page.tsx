@@ -24,8 +24,8 @@ export default function RegistrationPage() {
         setIsLoading(true);
         try {
             const url = isSignUp
-                ? "http://localhost:8080/smartenergy/admin/register"
-                : "http://localhost:8080/smartenergy/admin/login";
+                ? "http://localhost:8080/smartenergy/admin"
+                : "http://localhost:8080/smartenergy/admin";
 
             const response = await fetch(url, {
                 method: "POST",
@@ -41,7 +41,7 @@ export default function RegistrationPage() {
                 } else {
                     alert("Login realizado com sucesso!");
                 }
-                router.push("/debhord"); // Redirecionar para a dashboard
+                router.push("/dashboard"); // Redirecionar para a dashboard
             } else {
                 const errorMessage = await response.text();
                 alert(`Erro ao tentar realizar a operação: ${errorMessage}`);

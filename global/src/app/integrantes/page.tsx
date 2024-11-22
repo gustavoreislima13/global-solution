@@ -22,19 +22,19 @@ export default function Integrantes() {
 
   const integrantes: Integrante[] = [
     {
-      nome: 'Gustavo Lima',
+      nome: 'Gustavo  (RM555672)',
       imagem: gu,
       github: 'https://github.com/gustavolima',
       linkedin: 'https://linkedin.com/in/gustavolima',
     },
     {
-      nome: 'Leo',
+      nome: 'Leo (RM556857)',
       imagem: leo,
       github: 'https://github.com/leo',
       linkedin: 'https://linkedin.com/in/leo',
     },
     {
-      nome: 'Julia',
+      nome: 'Julia (RM558831)',
       imagem: ju,
       github: 'https://github.com/julia',
       linkedin: 'https://linkedin.com/in/julia',
