@@ -19,7 +19,7 @@ Instruções: Para utilizar a API de Java, é necessário rodar o projeto no arq
 # Vídeo do Pitch
 
 
-Assista ao nosso pitch aqui:  https://youtu.be/hxqYGu18iRg
+Assista ao nosso pitch aqui: https://youtu.be/hxqYGu18iRg?si=HzOp9oL156DerNWi
 ---
 
 ## Índice
