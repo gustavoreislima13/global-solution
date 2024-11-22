@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -82,26 +82,12 @@ export default function EditarExcluirCliente() {
   };
 
   return (
-    <div style={{ padding: "50px 10%", backgroundColor: "#fff" }}>
-      <h1 style={{ fontSize: "3rem", fontWeight: "bold", color: "#000", marginBottom: "30px" }}>
-        Editar Cliente
-      </h1>
-      <div
-        style={{
-          backgroundColor: "#fff",
-          padding: "40px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-          borderRadius: "10px",
-        }}
-      >
+    <div className="p-12 bg-white">
+      <h1 className="text-5xl font-bold text-black mb-8">Editar Cliente</h1>
+      <div className="bg-white p-10 shadow-md rounded-lg">
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              htmlFor="idNome"
-              style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}
-            >
-              Nome
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idNome" className="text-xl text-black block mb-2">Nome</label>
             <input
               type="text"
               name="nome"
@@ -110,22 +96,11 @@ export default function EditarExcluirCliente() {
               onChange={(evento) => handleChange(evento)}
               placeholder="Digite o nome"
               required
-              style={{
-                padding: "10px",
-                fontSize: "1rem",
-                width: "100%",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
             />
           </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label
-              htmlFor="idEmail"
-              style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}
-            >
-              Email
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idEmail" className="text-xl text-black block mb-2">Email</label>
             <input
               type="email"
               name="email"
@@ -134,46 +109,21 @@ export default function EditarExcluirCliente() {
               onChange={(evento) => handleChange(evento)}
               placeholder="Digite o email"
               required
-              style={{
-                padding: "10px",
-                fontSize: "1rem",
-                width: "100%",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
             />
           </div>
           {/* Outros campos de cliente aqui */}
-          <div style={{ textAlign: "right" }}>
+          <div className="text-right">
             <button
               type="submit"
-              style={{
-                backgroundColor: "#008000",
-                color: "#fff",
-                fontSize: "1.25rem",
-                fontWeight: "bold",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                border: "none",
-                cursor: "pointer",
-                marginRight: "10px",
-              }}
+              className="bg-green-600 text-white text-xl font-bold p-4 rounded-lg mr-4 cursor-pointer hover:bg-green-700"
             >
               Atualizar
             </button>
             <button
               type="button"
               onClick={handleDelete}
-              style={{
-                backgroundColor: "#FF0000",
-                color: "#fff",
-                fontSize: "1.25rem",
-                fontWeight: "bold",
-                padding: "10px 20px",
-                borderRadius: "5px",
-                border: "none",
-                cursor: "pointer",
-              }}
+              className="bg-red-600 text-white text-xl font-bold p-4 rounded-lg cursor-pointer hover:bg-red-700"
             >
               Excluir
             </button>

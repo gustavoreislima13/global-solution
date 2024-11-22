@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -48,53 +48,52 @@ export default function RegistrationPage() {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
+        <div className="flex h-screen items-center justify-center bg-white">
             {isSignUp ? (
-                <div style={{ width: '350px', padding: '40px', background: 'white', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', color: 'black' }}>
-                    <h2 style={{ color: 'black', fontWeight: 'bold' }}>Criar uma conta</h2>
-                    <p style={{ color: 'black' }}>Já tem uma conta? <a href="#" onClick={toggleSignUp} style={{ color: '#4CAF50' }}>Log in</a></p>
+                <div className="w-80 p-10 bg-white rounded-lg shadow-md text-black">
+                    <h2 className="text-black font-bold text-2xl mb-4">Criar uma conta</h2>
+                    <p className="text-black mb-6">Já tem uma conta? <a href="#" onClick={toggleSignUp} className="text-green-600">Log in</a></p>
                     <form id="registrationForm" onSubmit={handleSubmit}>
-                        <div style={{ marginBottom: '20px' }}>
-                            <label htmlFor="cpf_admin" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>CPF</label>
-                            <input type="text" id="cpf_admin" name="cpf_admin" value={formDatae.cpf_admin} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                        <div className="mb-5">
+                            <label htmlFor="cpf_admin" className="block font-bold mb-2">CPF</label>
+                            <input type="text" id="cpf_admin" name="cpf_admin" value={formDatae.cpf_admin} onChange={handleInputChange} required className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                         </div>
-                       
-                        <div style={{ marginBottom: '20px' }}>
-                            <label htmlFor="senha" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Senha</label>
-                            <input type="password" id="senha" name="senha" value={formDatae.senha} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                        <div className="mb-5">
+                            <label htmlFor="senha" className="block font-bold mb-2">Senha</label>
+                            <input type="password" id="senha" name="senha" value={formDatae.senha} onChange={handleInputChange} required className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                         </div>
-                        <div style={{ marginBottom: '20px' }}>
+                        <div className="mb-5">
                             <input type="checkbox" name="recaptcha" required /> Não sou um robô
                         </div>
-                        <div style={{ marginBottom: '20px' }}>
-                            <input type="submit" value="Criar uma conta" style={{ width: '100%', backgroundColor: '#4CAF50', color: 'white', fontWeight: 'bold', border: 'none', cursor: 'pointer', padding: '15px', borderRadius: '5px' }} />
+                        <div className="mb-5">
+                            <input type="submit" value="Criar uma conta" className="w-full bg-green-600 text-white font-bold p-4 rounded-lg cursor-pointer hover:bg-green-700" />
                         </div>
-                        <div style={{ marginBottom: '20px' }}>
-                            <p style={{ fontSize: '14px' }}>Ao criar uma conta, você concorda com nossos <a href="#">Termos de uso</a> e <a href="#">Política de Privacidade</a>.</p>
+                        <div className="mb-5">
+                            <p className="text-sm">Ao criar uma conta, você concorda com nossos <a href="#" className="underline">Termos de uso</a> e <a href="#" className="underline">Política de Privacidade</a>.</p>
                         </div>
                     </form>
                 </div>
             ) : (
-                <div style={{ width: '350px', padding: '40px', background: 'white', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', color: 'black' }}>
-                    <h2 style={{ color: 'black', fontWeight: 'bold' }}>Entrar</h2>
-                    <p style={{ color: 'black' }}>Entre para acessar sua conta</p>
+                <div className="w-80 p-10 bg-white rounded-lg shadow-md text-black">
+                    <h2 className="text-black font-bold text-2xl mb-4">Entrar</h2>
+                    <p className="text-black mb-6">Entre para acessar sua conta</p>
                     <form id="loginForm" onSubmit={handleSubmit}>
-                        <div style={{ marginBottom: '20px' }}>
-                            <label htmlFor="cpf_admin" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>CPF</label>
-                            <input type="text" id="cpf_admin" name="cpf_admin" value={formDatae.cpf_admin} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                        <div className="mb-5">
+                            <label htmlFor="cpf_admin" className="block font-bold mb-2">CPF</label>
+                            <input type="text" id="cpf_admin" name="cpf_admin" value={formDatae.cpf_admin} onChange={handleInputChange} required className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                         </div>
-                        <div style={{ marginBottom: '20px' }}>
-                            <label htmlFor="senha" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Senha</label>
-                            <input type="password" id="senha" name="senha" value={formDatae.senha} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                        <div className="mb-5">
+                            <label htmlFor="senha" className="block font-bold mb-2">Senha</label>
+                            <input type="password" id="senha" name="senha" value={formDatae.senha} onChange={handleInputChange} required className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                         </div>
-                        <div style={{ marginBottom: '20px' }}>
+                        <div className="mb-5">
                             <input type="checkbox" name="recaptcha" required /> Não sou um robô
                         </div>
-                        <div style={{ marginBottom: '20px' }}>
-                            <input type="submit" value="Entrar" style={{ width: '100%', backgroundColor: '#4CAF50', color: 'white', fontWeight: 'bold', border: 'none', cursor: 'pointer', padding: '15px', borderRadius: '5px' }} />
+                        <div className="mb-5">
+                            <input type="submit" value="Entrar" className="w-full bg-green-600 text-white font-bold p-4 rounded-lg cursor-pointer hover:bg-green-700" />
                         </div>
                     </form>
-                    <p style={{ color: 'black' }}>Não tem uma conta? <a href="#" onClick={toggleSignUp} style={{ color: '#4CAF50' }}>Criar uma conta</a></p>
+                    <p className="text-black">Não tem uma conta? <a href="#" onClick={toggleSignUp} className="text-green-600">Criar uma conta</a></p>
                 </div>
             )}
         </div>

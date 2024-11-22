@@ -1,4 +1,5 @@
-"use client";
+'use client';
+
 import { TipoProdulto } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -69,75 +70,75 @@ export default function Produtos() {
     };
 
     return (
-        <div style={{ padding: '50px 10%', backgroundColor: '#fff' }}>
-            <h1 style={{ fontSize: '3rem', fontWeight: 'bold', color: '#000', marginBottom: '30px' }}>Produtos</h1>
-            <div style={{ backgroundColor: '#fff', padding: '40px', boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', borderRadius: '10px' }}>
-                <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#000', marginBottom: '20px' }}>Cadastro de Produtos</h2>
+        <div className="p-12 bg-white">
+            <h1 className="text-5xl font-bold text-black mb-8">Produtos</h1>
+            <div className="bg-white p-10 shadow-md rounded-lg">
+                <h2 className="text-4xl font-bold text-black mb-5">Cadastro de Produtos</h2>
                 <form onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idNn" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Eletrodoméstico</label>
+                    <div className="mb-5">
+                        <label htmlFor="idNn" className="text-xl text-black block mb-2">Eletrodoméstico</label>
                         <input type="text" name="eletrodomestico" id="idNn" value={produto.eletrodomestico}
                             onChange={(evento) => handleChange(evento)} placeholder="Digite o eletrodoméstico" required
-                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
+                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                     </div>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idMa" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Marca</label>
+                    <div className="mb-5">
+                        <label htmlFor="idMa" className="text-xl text-black block mb-2">Marca</label>
                         <input type="text" name="marca" id="idMa" value={produto.marca} onChange={(evento) => handleChange(evento)} placeholder="Digite a marca" required
-                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
+                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                     </div>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idEf" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Eficiência energética</label>
+                    <div className="mb-5">
+                        <label htmlFor="idEf" className="text-xl text-black block mb-2">Eficiência energética</label>
                         <input type="text" name="eficiencia_energetica" id="idEf" value={produto.eficiencia_energetica} onChange={(evento) => handleChange(evento)} placeholder="Digite a eficiência energética" required
-                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
+                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                     </div>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idCs" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Potencia</label>
-                        <input type="number" name="consumo_energetico" id="idCs" value={produto.potencia} onChange={(evento) => handleChange(evento)} placeholder="Digite a potencia" required
-                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
+                    <div className="mb-5">
+                        <label htmlFor="idCs" className="text-xl text-black block mb-2">Potência</label>
+                        <input type="number" name="consumo_energetico" id="idCs" value={produto.potencia} onChange={(evento) => handleChange(evento)} placeholder="Digite a potência" required
+                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                     </div>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idCpf" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>CPF</label>
+                    <div className="mb-5">
+                        <label htmlFor="idCpf" className="text-xl text-black block mb-2">CPF</label>
                         <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF do cliente" required
-                            style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
+                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
                     </div>
-                    <div style={{ textAlign: 'right' }}>
+                    <div className="text-right">
                         <button type="submit"
-                            style={{ backgroundColor: '#008000', color: '#fff', fontSize: '1.25rem', fontWeight: 'bold', padding: '10px 20px', borderRadius: '5px', border: 'none', cursor: 'pointer' }}>
+                            className="bg-green-600 text-white text-xl font-bold p-4 rounded-lg cursor-pointer hover:bg-green-700">
                             Cadastrar
                         </button>
                     </div>
                 </form>
             </div>
-            <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#000', marginTop: '50px' }}>Listagem de Produtos</h2>
-            <div style={{ overflowX: 'auto', marginTop: '20px' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+            <h2 className="text-4xl font-bold text-black mt-12">Listagem de Produtos</h2>
+            <div className="overflow-x-auto mt-5">
+                <table className="w-full border-collapse">
                     <thead>
-                        <tr style={{ backgroundColor: '#f0f0f0' }}>
-                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Eletrodoméstico</th>
-                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Marca</th>
-                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Eficiência energética</th>
-                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Consumo energético</th>
-                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>CPF</th>
-                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Editar | Excluir</th>
+                        <tr className="bg-gray-200">
+                            <th className="p-4 border-b text-xl text-left">Eletrodoméstico</th>
+                            <th className="p-4 border-b text-xl text-left">Marca</th>
+                            <th className="p-4 border-b text-xl text-left">Eficiência energética</th>
+                            <th className="p-4 border-b text-xl text-left">Consumo energético</th>
+                            <th className="p-4 border-b text-xl text-left">CPF</th>
+                            <th className="p-4 border-b text-xl text-left">Editar | Excluir</th>
                         </tr>
                     </thead>
                     <tbody>
                         {
                             produtos.length > 0 && produtos.map(p => (
                                 <tr key={p.cpf_cliente}>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eletrodomestico}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.marca}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eficiencia_energetica}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.potencia}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.cpf_cliente}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}><Link href="/">Editar</Link> | <Link href="/">Excluir</Link></td>
+                                    <td className="p-4 border-b">{p.eletrodomestico}</td>
+                                    <td className="p-4 border-b">{p.marca}</td>
+                                    <td className="p-4 border-b">{p.eficiencia_energetica}</td>
+                                    <td className="p-4 border-b">{p.potencia}</td>
+                                    <td className="p-4 border-b">{p.cpf_cliente}</td>
+                                    <td className="p-4 border-b"><Link href="/">Editar</Link> | <Link href="/">Excluir</Link></td>
                                 </tr>
                             ))
                         }
                     </tbody>
                     <tfoot>
                         <tr>
-                            <td colSpan={6} style={{ padding: '15px', textAlign: 'right', fontWeight: 'bold' }}>Total de informações: {produtos.length}</td>
+                            <td colSpan={6} className="p-4 text-right font-bold">Total de informações: {produtos.length}</td>
                         </tr>
                     </tfoot>
                 </table>
