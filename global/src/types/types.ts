@@ -1,10 +1,10 @@
 export type TipoProdulto = {
-    id_eletro:string;
+    id_eletro:number;
     eletrodomestico:string;
     marca:string;
     eficiencia_energetica:string;
-    potencia:string;
-    cpf_cliente:number;
+    potencia:number;
+    cpf_cliente:string;
 }
 
 
@@ -22,5 +22,5 @@ export type TipoCliente = {
     endereco: string; 
     telefone: number; 
     data_nasc: string; 
-  };
+};
   

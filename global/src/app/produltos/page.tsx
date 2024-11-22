@@ -17,6 +17,7 @@ export default function Produtos() {
             const response = await fetch(" http://localhost:8080/smartenergy/eletro");
             const data = await response.json();
             setProdutos(data);
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         } catch (error) {
             console.error("Falha na listagem");
         }
@@ -27,12 +28,12 @@ export default function Produtos() {
     }, [])
 
     const [produto, setProduto] = useState<TipoProdulto>({
-        id_eletro:"",
+        id_eletro:0.0,
         eletrodomestico: "",
         marca: "",
         eficiencia_energetica: "",
-        potencia: "",
-        cpf_cliente: 0.0,
+        potencia: 0.0,
+        cpf_cliente:"",
     })
 
     const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
@@ -40,17 +41,17 @@ export default function Produtos() {
         setProduto({ ...produto, [name]: value });
     }
 
-    const handleDelete = async (id_eletro: string) => {
+    const handleDelete = async (id_eletro: number) => {
         try {
             const response = await fetch(`http://localhost:8080/smartenergy/eletro/${id_eletro}`, {
                 method: 'DELETE',
             });
             if (response.ok) {
-                alert("Checkpoint excluído com sucesso.");
+                alert("Produto excluído com sucesso.");
                 chamadaApi();
             }
         } catch (error) {
-            console.error("Falha ao remover o checkpoint: ", error);
+            console.error("Falha ao remover o produto: ", error);
         }
     };
 
@@ -58,7 +59,7 @@ export default function Produtos() {
         evento.preventDefault();
 
         try {
-            const response = await fetch("", {
+            const response = await fetch("http://localhost:8080/smartenergy/eletro", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
@@ -69,15 +70,15 @@ export default function Produtos() {
             if (response.ok) {
                 alert("Produto cadastrado!");
                 setProduto({
-                    id_eletro:"",
+                    id_eletro:0.0,
                     eletrodomestico: "",
                     marca: "",
                     eficiencia_energetica: "",
-                    potencia: "",
-                    cpf_cliente: 0.0,
+                    potencia: 0.0,
+                    cpf_cliente: "",
                 });
 
-                navigate.push("/");
+                navigate.push("/dashboard");
 
             }
 
@@ -115,7 +116,7 @@ export default function Produtos() {
                     </div>
                     <div className="mb-5">
                         <label htmlFor="idCpf" className="text-xl text-black block mb-2">CPF do cliente</label>
-                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF do cliente" required
+                        <input type="text" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF do cliente" required
                             className="p-3 text-lg w-full rounded-lg border border-gray-300" />
                     </div>
                     <div className="text-right">

@@ -4,15 +4,8 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import '@/app/globals.css';
+import { TipoCliente } from "@/types/types";
 
-interface TipoCliente {
-  cpf_cliente: string;
-  nome: string;
-  email: string;
-  endereco: string;
-  telefone: string;
-  data_nasc: string;
-}
 
 export default function EditarExcluirCliente() {
   const navigate = useRouter();
@@ -23,7 +16,7 @@ export default function EditarExcluirCliente() {
     nome: "",
     email: "",
     endereco: "",
-    telefone: "",
+    telefone: 0.0,
     data_nasc: "",
   });
 
@@ -87,6 +80,19 @@ export default function EditarExcluirCliente() {
       <h1 className="text-5xl font-bold text-black mb-8">Editar Cliente</h1>
       <div className="bg-white p-10 shadow-md rounded-lg">
         <form onSubmit={handleSubmit}>
+        <div className="mb-5">
+            <label htmlFor="idcpf" className="text-xl text-black block mb-2">CPF</label>
+            <input
+              type="text"
+              name="cpf_cliente"
+              id="idcpf"
+              value={cliente.cpf_cliente}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite o cpf no formato xxxxxxxxxxx"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
           <div className="mb-5">
             <label htmlFor="idNome" className="text-xl text-black block mb-2">Nome</label>
             <input
@@ -135,7 +141,7 @@ export default function EditarExcluirCliente() {
               id="idTelefone"
               value={cliente.telefone}
               onChange={(evento) => handleChange(evento)}
-              placeholder="Digite o telefone"
+              placeholder="Digite o telefone formato 1234567890"
               required
               className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
             />

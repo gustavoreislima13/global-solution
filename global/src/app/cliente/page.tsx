@@ -70,7 +70,7 @@ export default function Clientes() {
           data_nasc: "",
         });
 
-        navigate.push("/");
+        navigate.push("/dashboard");
       }
     } catch (erro) {
       console.error("Falha ao cadastrar cliente", erro);

@@ -4,27 +4,20 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
 import '@/app/globals.css';
+import { TipoProdulto } from "@/types/types";
 
-interface TipoProduto {
-  id_eletro: string;
-  eletrodomestico: string;
-  marca: string;
-  eficiencia_energetica: string;
-  potencia: string;
-  cpf_cliente: number;
-}
 
 export default function EditarExcluirProduto() {
   const navigate = useRouter();
   const { id_eletro } = useParams();
 
-  const [produto, setProduto] = useState<TipoProduto>({
-    id_eletro: "",
+  const [produto, setProduto] = useState<TipoProdulto>({
+    id_eletro: 0.0,
     eletrodomestico: "",
     marca: "",
     eficiencia_energetica: "",
-    potencia: "",
-    cpf_cliente: 0.0,
+    potencia: 0.0,
+    cpf_cliente: "",
   });
 
   useEffect(() => {
@@ -60,7 +53,7 @@ export default function EditarExcluirProduto() {
 
       if (response.ok) {
         alert("Produto atualizado com sucesso!");
-        navigate.push("/");
+        navigate.push("/dashboard");
       }
     } catch (erro) {
       console.error("Falha ao atualizar produto", erro);
@@ -129,7 +122,7 @@ export default function EditarExcluirProduto() {
           <div className="mb-5">
             <label htmlFor="idPotencia" className="text-xl text-black block mb-2">Potência</label>
             <input
-              type="text"
+              type="number"
               name="potencia"
               id="idPotencia"
               value={produto.potencia}
@@ -142,7 +135,7 @@ export default function EditarExcluirProduto() {
           <div className="mb-5">
             <label htmlFor="idCpfCliente" className="text-xl text-black block mb-2">CPF do Cliente</label>
             <input
-              type="number"
+              type="text"
               name="cpf_cliente"
               id="idCpfCliente"
               value={produto.cpf_cliente}
