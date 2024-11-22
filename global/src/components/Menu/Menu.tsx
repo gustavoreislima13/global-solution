@@ -1,3 +1,5 @@
+
+
 import Link from "next/link";
 import { MdOutlineSpaceDashboard } from "react-icons/md";
 import { FaCalculator } from "react-icons/fa6";
@@ -16,7 +18,7 @@ export default function Menu() {
               Dashboard
             </a>
           </Link>
-          <Link href="/consumo" legacyBehavior>
+          <Link href="/calculo" legacyBehavior>
             <a className="flex items-center gap-2 text-green-700 text-lg font-bold hover:text-green-900 transition">
               <FaCalculator size={24} />
               Calcular Consumo
