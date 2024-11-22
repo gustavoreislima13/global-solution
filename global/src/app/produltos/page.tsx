@@ -3,6 +3,8 @@ import { TipoProdulto } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { CiEdit } from "react-icons/ci";
+import { FaTrash } from "react-icons/fa6";
 
 export default function Produtos() {
 
@@ -24,6 +26,7 @@ export default function Produtos() {
     }, [])
 
     const [produto, setProduto] = useState<TipoProdulto>({
+        id_eletro:"",
         eletrodomestico: "",
         marca: "",
         eficiencia_energetica: "",
@@ -35,6 +38,20 @@ export default function Produtos() {
         const { name, value } = evento.target;
         setProduto({ ...produto, [name]: value });
     }
+
+    const handleDelete = async (id_eletro: string) => {
+        try {
+            const response = await fetch(`http://localhost:8080/smartenergy/eletro/${id_eletro}`, {
+                method: 'DELETE',
+            });
+            if (response.ok) {
+                alert("Checkpoint excluído com sucesso.");
+                chamadaApi();
+            }
+        } catch (error) {
+            console.error("Falha ao remover o checkpoint: ", error);
+        }
+    };
 
     const handleSubmit = async (evento: React.FormEvent<HTMLFormElement>) => {
         evento.preventDefault();
@@ -51,10 +68,11 @@ export default function Produtos() {
             if (response.ok) {
                 alert("Produto cadastrado!");
                 setProduto({
+                    id_eletro:"",
                     eletrodomestico: "",
                     marca: "",
                     eficiencia_energetica: "",
-                    consumo_energetico: "",
+                    potencia: "",
                     cpf_cliente: 0.0,
                 });
 
@@ -90,13 +108,13 @@ export default function Produtos() {
                             style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
                     <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idCs" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Consumo energético</label>
-                        <input type="number" name="consumo_energetico" id="idCs" value={produto.consumo_energetico} onChange={(evento) => handleChange(evento)} placeholder="Digite o consumo energético" required
+                        <label htmlFor="idCs" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Potencia</label>
+                        <input type="number" name="consumo_energetico" id="idCs" value={produto.potencia} onChange={(evento) => handleChange(evento)} placeholder="Digite a potencia" required
                             style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
                     <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idCpf" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>CPF</label>
-                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF" required
+                        <label htmlFor="idCpf" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>CPF do cliente</label>
+                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF do cliente" required
                             style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
                     <div style={{ textAlign: 'right' }}>
@@ -112,10 +130,11 @@ export default function Produtos() {
                 <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                     <thead>
                         <tr style={{ backgroundColor: '#f0f0f0' }}>
+                        <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Id</th>
                             <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Eletrodoméstico</th>
                             <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Marca</th>
                             <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Eficiência energética</th>
-                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Consumo energético</th>
+                            <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Potencia</th>
                             <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>CPF</th>
                             <th style={{ padding: '15px', borderBottom: '1px solid #ddd', fontSize: '1.25rem', textAlign: 'left' }}>Editar | Excluir</th>
                         </tr>
@@ -123,13 +142,14 @@ export default function Produtos() {
                     <tbody>
                         {
                             produtos.length > 0 && produtos.map(p => (
-                                <tr key={p.cpf_cliente}>
+                                <tr key={p.id_eletro}>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.id_eletro}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eletrodomestico}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.marca}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eficiencia_energetica}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.consumo_energetico}</td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.potencia}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.cpf_cliente}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}><Link href="/">Editar</Link> | <Link href="/">Excluir</Link></td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}><Link href="./[id]"><CiEdit/></Link> | <Link href="#" onClick={() => handleDelete(p.id_eletro)}><FaTrash/></Link></td>
                                 </tr>
                             ))
                         }

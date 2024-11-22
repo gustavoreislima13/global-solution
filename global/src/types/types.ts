@@ -1,8 +1,9 @@
 export type TipoProdulto = {
+    id_eletro:string;
     eletrodomestico:string;
     marca:string;
     eficiencia_energetica:string;
-    consumo_energetico:string;
+    potencia:string;
     cpf_cliente:number;
 }
 

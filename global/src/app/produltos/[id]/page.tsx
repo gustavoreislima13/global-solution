@@ -24,10 +24,11 @@ export default function Produtos() {
     }, []);
 
     const [produto, setProduto] = useState<TipoProdulto>({
+        id_eletro:"",
         eletrodomestico: "",
         marca: "",
         eficiencia_energetica: "",
-        consumo_energetico: "",
+        potencia: "",
         cpf_cliente: 0.0,
     });
 
@@ -51,14 +52,15 @@ export default function Produtos() {
             if (response.ok) {
                 alert("Produto cadastrado!");
                 setProduto({
+                    id_eletro:"",
                     eletrodomestico: "",
                     marca: "",
                     eficiencia_energetica: "",
-                    consumo_energetico: "",
+                    potencia: "",
                     cpf_cliente: 0.0,
                 });
 
-                navigate.push("/");
+                navigate.push("/dashboard");
             }
 
         } catch (erro) {
@@ -89,13 +91,13 @@ export default function Produtos() {
                             style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
                     <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="idCs" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Consumo energético</label>
-                        <input type="number" name="consumo_energetico" id="idCs" value={produto.consumo_energetico} onChange={(evento) => handleChange(evento)} placeholder="Digite o consumo energético" required
+                        <label htmlFor="idCs" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Potencia</label>
+                        <input type="number" name="consumo_energetico" id="idCs" value={produto.potencia} onChange={(evento) => handleChange(evento)} placeholder="Digite a potencia" required
                             style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
                     <div style={{ marginBottom: '20px' }}>
                         <label htmlFor="idCpf" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>CPF</label>
-                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF" required
+                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF do cliente" required
                             style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
                     <div style={{ textAlign: 'right' }}>
@@ -126,7 +128,7 @@ export default function Produtos() {
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eletrodomestico}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.marca}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eficiencia_energetica}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.consumo_energetico}</td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.potencia}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.cpf_cliente}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}><Link href="/">Editar</Link> | <Link href="/">Excluir</Link></td>
                                 </tr>
