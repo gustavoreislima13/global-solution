@@ -1,9 +1,10 @@
-"use client";
+'use client';
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { CiEdit } from "react-icons/ci";
 import { FaTrash } from "react-icons/fa6";
+import '@/app/globals.css';
 
 interface TipoCliente {
   cpf_cliente: string;
@@ -77,19 +78,13 @@ export default function Clientes() {
   };
 
   return (
-    <div style={{ padding: "50px 10%", backgroundColor: "#fff" }}>
-      <h1 style={{ fontSize: "3rem", fontWeight: "bold", color: "#000", marginBottom: "30px" }}>
-        Clientes
-      </h1>
-      <div style={{ backgroundColor: "#fff", padding: "40px", boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", borderRadius: "10px" }}>
-        <h2 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "#000", marginBottom: "20px" }}>
-          Cadastro de Clientes
-        </h2>
+    <div className="p-12 bg-white">
+      <h1 className="text-5xl font-bold text-black mb-8">Clientes</h1>
+      <div className="bg-white p-10 shadow-md rounded-lg">
+        <h2 className="text-4xl font-bold text-black mb-5">Cadastro de Clientes</h2>
         <form onSubmit={handleSubmit}>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="idCpf" style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}>
-              CPF
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idCpf" className="text-xl text-black block mb-2">CPF</label>
             <input
               type="text"
               name="cpf_cliente"
@@ -98,13 +93,11 @@ export default function Clientes() {
               onChange={(evento) => handleChange(evento)}
               placeholder="Digite o CPF no formato xxxxxxxxxxx"
               required
-              style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
+              className="p-3 text-lg w-full rounded-lg border border-gray-300"
             />
           </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="idNome" style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}>
-              Nome
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idNome" className="text-xl text-black block mb-2">Nome</label>
             <input
               type="text"
               name="nome"
@@ -113,13 +106,11 @@ export default function Clientes() {
               onChange={(evento) => handleChange(evento)}
               placeholder="Digite o nome"
               required
-              style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
+              className="p-3 text-lg w-full rounded-lg border border-gray-300"
             />
           </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="idEmail" style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}>
-              Email
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idEmail" className="text-xl text-black block mb-2">Email</label>
             <input
               type="email"
               name="email"
@@ -128,13 +119,11 @@ export default function Clientes() {
               onChange={(evento) => handleChange(evento)}
               placeholder="Digite o email"
               required
-              style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
+              className="p-3 text-lg w-full rounded-lg border border-gray-300"
             />
           </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="idEndereco" style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}>
-              Endereço
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idEndereco" className="text-xl text-black block mb-2">Endereço</label>
             <input
               type="text"
               name="endereco"
@@ -143,13 +132,11 @@ export default function Clientes() {
               onChange={(evento) => handleChange(evento)}
               placeholder="Digite o endereço"
               required
-              style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
+              className="p-3 text-lg w-full rounded-lg border border-gray-300"
             />
           </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="idTelefone" style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}>
-              Telefone
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idTelefone" className="text-xl text-black block mb-2">Telefone</label>
             <input
               type="text"
               name="telefone"
@@ -158,13 +145,11 @@ export default function Clientes() {
               onChange={(evento) => handleChange(evento)}
               placeholder="Digite o telefone com ddd no formato 11111111111"
               required
-              style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
+              className="p-3 text-lg w-full rounded-lg border border-gray-300"
             />
           </div>
-          <div style={{ marginBottom: "20px" }}>
-            <label htmlFor="idDataNasc" style={{ fontSize: "1.25rem", color: "#000", display: "block", marginBottom: "5px" }}>
-              Data de Nascimento
-            </label>
+          <div className="mb-5">
+            <label htmlFor="idDataNasc" className="text-xl text-black block mb-2">Data de Nascimento</label>
             <input
               type="date"
               name="data_nasc"
@@ -172,44 +157,44 @@ export default function Clientes() {
               value={cliente.data_nasc}
               onChange={(evento) => handleChange(evento)}
               required
-              style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
+              className="p-3 text-lg w-full rounded-lg border border-gray-300"
             />
           </div>
-          <div style={{ textAlign: "right" }}>
+          <div className="text-right">
             <button
               type="submit"
-              style={{ backgroundColor: "#008000", color: "#fff", fontSize: "1.25rem", fontWeight: "bold", padding: "10px 20px", borderRadius: "5px", border: "none", cursor: "pointer" }}
+              className="bg-green-600 text-white text-xl font-bold p-3 rounded-lg hover:bg-green-700"
             >
               Cadastrar
             </button>
           </div>
         </form>
       </div>
-      <h2 style={{ fontSize: "2.5rem", fontWeight: "bold", color: "#000", marginTop: "50px" }}>Listagem de Clientes</h2>
-      <div style={{ overflowX: "auto", marginTop: "20px" }}>
-        <table style={{ width: "100%", borderCollapse: "collapse" }}>
+      <h2 className="text-4xl font-bold text-black mt-12">Listagem de Clientes</h2>
+      <div className="overflow-x-auto mt-5">
+        <table className="w-full border-collapse">
           <thead>
-            <tr style={{ backgroundColor: "#f0f0f0" }}>
-              <th style={{ padding: "15px", borderBottom: "1px solid #ddd", fontSize: "1.25rem", textAlign: "left" }}>CPF</th>
-              <th style={{ padding: "15px", borderBottom: "1px solid #ddd", fontSize: "1.25rem", textAlign: "left" }}>Nome</th>
-              <th style={{ padding: "15px", borderBottom: "1px solid #ddd", fontSize: "1.25rem", textAlign: "left" }}>Email</th>
-              <th style={{ padding: "15px", borderBottom: "1px solid #ddd", fontSize: "1.25rem", textAlign: "left" }}>Endereço</th>
-              <th style={{ padding: "15px", borderBottom: "1px solid #ddd", fontSize: "1.25rem", textAlign: "left" }}>Telefone</th>
-              <th style={{ padding: "15px", borderBottom: "1px solid #ddd", fontSize: "1.25rem", textAlign: "left" }}>Data de Nascimento</th>
-              <th style={{ padding: "15px", borderBottom: "1px solid #ddd", fontSize: "1.25rem", textAlign: "left" }}>Editar | Excluir</th>
+            <tr className="bg-gray-200">
+              <th className="p-4 border-b text-xl text-left">CPF</th>
+              <th className="p-4 border-b text-xl text-left">Nome</th>
+              <th className="p-4 border-b text-xl text-left">Email</th>
+              <th className="p-4 border-b text-xl text-left">Endereço</th>
+              <th className="p-4 border-b text-xl text-left">Telefone</th>
+              <th className="p-4 border-b text-xl text-left">Data de Nascimento</th>
+              <th className="p-4 border-b text-xl text-left">Editar | Excluir</th>
             </tr>
           </thead>
           <tbody>
             {clientes.length > 0 &&
               clientes.map((c) => (
                 <tr key={c.cpf_cliente}>
-                  <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.cpf_cliente}</td>
-                  <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.nome}</td>
-                  <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.email}</td>
-                  <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.endereco}</td>
-                  <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.telefone}</td>
-                  <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.data_nasc}</td>
-                  <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
+                  <td className="p-4 border-b">{c.cpf_cliente}</td>
+                  <td className="p-4 border-b">{c.nome}</td>
+                  <td className="p-4 border-b">{c.email}</td>
+                  <td className="p-4 border-b">{c.endereco}</td>
+                  <td className="p-4 border-b">{c.telefone}</td>
+                  <td className="p-4 border-b">{c.data_nasc}</td>
+                  <td className="p-4 border-b">
                     <Link href={`/cliente/${c.cpf_cliente}`}><CiEdit /></Link> | <Link href="/"><FaTrash /></Link>
                   </td>
                 </tr>
@@ -217,7 +202,7 @@ export default function Clientes() {
           </tbody>
           <tfoot>
             <tr>
-              <td colSpan={7} style={{ padding: "15px", textAlign: "right", fontWeight: "bold" }}>
+              <td colSpan={7} className="p-4 text-right font-bold">
                 Total de clientes: {clientes.length}
               </td>
             </tr>

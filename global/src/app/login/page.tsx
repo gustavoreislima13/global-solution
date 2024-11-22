@@ -1,7 +1,8 @@
-"use client";
+'use client';
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import '@/app/globals.css';
 
 export default function RegistrationPage() {
     const router = useRouter();
@@ -59,23 +60,23 @@ export default function RegistrationPage() {
     };
 
     return (
-        <div style={{ display: 'flex', height: '100vh', alignItems: 'center', justifyContent: 'center', backgroundColor: 'white' }}>
-            <div style={{ width: '350px', padding: '40px', background: 'white', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0, 0, 0, 0.1)', color: 'black' }}>
-                <h2 style={{ color: 'black', fontWeight: 'bold' }}>{isSignUp ? "Criar uma conta" : "Entrar"}</h2>
-                <p style={{ color: 'black' }}>
+        <div className="flex h-screen items-center justify-center bg-white">
+            <div className="w-80 p-10 bg-white rounded-lg shadow-md text-black">
+                <h2 className="text-black font-bold text-2xl mb-4">{isSignUp ? "Criar uma conta" : "Entrar"}</h2>
+                <p className="text-black mb-6">
                     {isSignUp ? (
                         <>
-                            Já tem uma conta? <a href="#" onClick={toggleSignUp} style={{ color: '#4CAF50' }}>Faça login</a>
+                            Já tem uma conta? <a href="#" onClick={toggleSignUp} className="text-green-600">Faça login</a>
                         </>
                     ) : (
                         <>
-                            Não tem uma conta? <a href="#" onClick={toggleSignUp} style={{ color: '#4CAF50' }}>Criar uma conta</a>
+                            Não tem uma conta? <a href="#" onClick={toggleSignUp} className="text-green-600">Criar uma conta</a>
                         </>
                     )}
                 </p>
                 <form id={isSignUp ? "registrationForm" : "loginForm"} onSubmit={handleSubmit}>
-                    <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="cpf_admin" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>CPF</label>
+                    <div className="mb-5">
+                        <label htmlFor="cpf_admin" className="block font-bold mb-1">CPF</label>
                         <input
                             type="text"
                             id="cpf_admin"
@@ -84,13 +85,13 @@ export default function RegistrationPage() {
                             onChange={handleInputChange}
                             placeholder="digite seu cpf no formato xxxxxxxxxxx"
                             required
-                            style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
+                            className="w-full p-2 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
                         />
                     </div>
                     {isSignUp && (
                         <>
-                            <div style={{ marginBottom: '20px' }}>
-                                <label htmlFor="nome" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Nome</label>
+                            <div className="mb-5">
+                                <label htmlFor="nome" className="block font-bold mb-1">Nome</label>
                                 <input
                                     type="text"
                                     id="nome"
@@ -99,11 +100,11 @@ export default function RegistrationPage() {
                                     onChange={handleInputChange}
                                     placeholder="digite seu nome"
                                     required
-                                    style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
+                                    className="w-full p-2 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
                                 />
                             </div>
-                            <div style={{ marginBottom: '20px' }}>
-                                <label htmlFor="email" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Endereço de email</label>
+                            <div className="mb-5">
+                                <label htmlFor="email" className="block font-bold mb-1">Endereço de email</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -112,35 +113,33 @@ export default function RegistrationPage() {
                                     onChange={handleInputChange}
                                     placeholder="digite seu email"
                                     required
-                                    style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
+                                    className="w-full p-2 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
                                 />
                             </div>
                         </>
                     )}
-                    <div style={{ marginBottom: '20px' }}>
-                        <label htmlFor="senha" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Senha</label>
+                    <div className="mb-5">
+                        <label htmlFor="senha" className="block font-bold mb-1">Senha</label>
                         <input
                             type="password"
                             id="senha"
                             name="senha"
                             value={formData.senha}
                             onChange={handleInputChange}
-                            placeholder="digite sua senha com até 8 digitos"
+                            placeholder="digite sua senha com até 8 dígitos"
                             required
-                            style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
+                            className="w-full p-2 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
                         />
                     </div>
-                    <div style={{ marginBottom: '20px' }}>
+                    <div className="mb-5">
                         <input type="checkbox" name="recaptcha" required /> Não sou um robô
                     </div>
-                    <div style={{ marginBottom: '20px' }}>
-                        <button type="submit" disabled={isLoading} style={{ width: '100%', backgroundColor: '#4CAF50', color: 'white', fontWeight: 'bold', border: 'none', cursor: isLoading ? 'not-allowed' : 'pointer', padding: '15px', borderRadius: '5px' }}>
-                            {isLoading ? "Carregando..." : (isSignUp ? "Criar uma conta" : "Entrar")}
-                        </button>
+                    <div className="mb-5">
+                        <button type="submit" disabled={isLoading} className={`w-full p-4 font-bold text-white rounded-lg ${isLoading ? 'bg-gray-400 cursor-not-allowed' : 'bg-green-600 hover:bg-green-700'}`}>{isLoading ? "Carregando..." : (isSignUp ? "Criar uma conta" : "Entrar")}</button>
                     </div>
                     {isSignUp && (
-                        <div style={{ marginBottom: '20px' }}>
-                            <p style={{ fontSize: '14px' }}>Ao criar uma conta, você concorda com nossos <a href="#">Termos de uso</a> e <a href="#">Política de Privacidade</a>.</p>
+                        <div className="mb-5">
+                            <p className="text-sm">Ao criar uma conta, você concorda com nossos <a href="#" className="underline">Termos de uso</a> e <a href="#" className="underline">Política de Privacidade</a>.</p>
                         </div>
                     )}
                 </form>

@@ -7,6 +7,7 @@ import gu from '@/img/gustavo.png';
 import leo from '@/img/leo.png';
 import git from '@/img/git (1).png';
 import link from '@/img/link (1).png';
+import '@/app/globals.css';
 
 interface Integrante {
   nome: string;
@@ -42,24 +43,24 @@ export default function Integrantes() {
   ];
 
   return (
-    <div style={{ textAlign: 'center', padding: '2rem', backgroundColor: '#fff' }}>
-      <h1 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Integrantes</h1>
-      <p style={{ fontSize: '1.2rem', color: '#555', marginBottom: '2rem' }}>Nosso compromisso é com a transparência e a sustentabilidade.</p>
-      <div style={{ display: 'flex', justifyContent: 'center', gap: '2rem', flexWrap: 'wrap' }}>
+    <div className="text-center p-8 bg-white">
+      <h1 className="text-3xl font-bold mb-4">Integrantes</h1>
+      <p className="text-lg text-gray-600 mb-8">Nosso compromisso é com a transparência e a sustentabilidade.</p>
+      <div className="flex justify-center gap-8 flex-wrap">
         {integrantes.map((integrante, index) => (
-          <div key={index} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <div key={index} className="flex flex-col items-center">
             <Image
               src={integrante.imagem}
               alt={integrante.nome}
-              style={{ maxWidth: '2000px', width: '150px', height: '150px', borderRadius: '10px', objectFit: 'cover', marginBottom: '0.5rem' }}
+              className="w-36 h-36 rounded-lg object-cover mb-2"
             />
-            <p style={{ fontSize: '1rem', fontWeight: 'bold' }}>{integrante.nome}</p>
-            <div style={{ display: 'flex', gap: '1rem', marginTop: '0.5rem' }}>
+            <p className="text-lg font-bold">{integrante.nome}</p>
+            <div className="flex gap-4 mt-2">
               <a href={integrante.github} target="_blank" rel="noopener noreferrer">
-                <Image src={git} alt="GitHub" style={{ width: '24px', height: '24px' }} />
+                <Image src={git} alt="GitHub" className="w-6 h-6" />
               </a>
               <a href={integrante.linkedin} target="_blank" rel="noopener noreferrer">
-                <Image src={link} alt="LinkedIn" style={{ width: '24px', height: '24px' }} />
+                <Image src={link} alt="LinkedIn" className="w-6 h-6" />
               </a>
             </div>
           </div>
