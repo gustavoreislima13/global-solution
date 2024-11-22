@@ -7,7 +7,7 @@ export default function InternalError() {
             <p className="text-xl mb-6 max-w-md">
                 Desculpe, algo deu errado no servidor. Tente novamente mais tarde.
             </p>
-            <Link href="/" className="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-pink-600 transition">
+            <Link href="/" className="bg-pink-500 text-white px-6 py-3 rounded-full hover:bg-green-600 transition">
                 Voltar para a página inicial
             </Link>
         </div>
