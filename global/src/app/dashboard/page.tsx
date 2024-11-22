@@ -9,10 +9,14 @@ export default function Exemplo() {
   const [horasUso, setHorasUso] = useState('');
   const [diasUso, setDiasUso] = useState('');
   const [gasto, setGasto] = useState(0);
+  const [custo, setCusto] = useState(0);
 
   const calcularConsumo = () => {
+    const precoKwh = 0.656;
     const consumo = (Number(potencia) * Number(horasUso) * Number(diasUso)) / 1000;
+    const custoTotal = consumo * precoKwh;
     setGasto(consumo);
+    setCusto(custoTotal);
   };
 
   return (
@@ -108,7 +112,8 @@ export default function Exemplo() {
               borderRadius: '10px',
               fontSize: '1.5rem'
             }}>
-              Gasto estimado: {gasto.toFixed(2)} kWh
+              <p>Gasto estimado: {gasto.toFixed(2)} kWh</p>
+              <p>Custo estimado: R$ {custo.toFixed(2)}</p>
             </div>
           )}
         </div>
