@@ -149,7 +149,7 @@ export default function Produtos() {
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.eficiencia_energetica}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.potencia}</td>
                                     <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}>{p.cpf_cliente}</td>
-                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}><Link href="./[id]"><CiEdit/></Link> | <Link href="#" onClick={() => handleDelete(p.id_eletro)}><FaTrash/></Link></td>
+                                    <td style={{ padding: '15px', borderBottom: '1px solid #ddd' }}><Link href={`/produltos/${p.id_eletro}`}><CiEdit/></Link> | <Link href="#" onClick={() => handleDelete(p.id_eletro)}><FaTrash/></Link></td>
                                 </tr>
                             ))
                         }

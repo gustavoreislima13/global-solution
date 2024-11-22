@@ -210,7 +210,7 @@ export default function Clientes() {
                   <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.telefone}</td>
                   <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.data_nasc}</td>
                   <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
-                    <Link href="./[id]"><CiEdit /></Link> | <Link href="/"><FaTrash /></Link>
+                    <Link href={`/cliente/${c.cpf_cliente}`}><CiEdit /></Link> | <Link href="/"><FaTrash /></Link>
                   </td>
                 </tr>
               ))}

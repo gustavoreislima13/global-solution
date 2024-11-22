@@ -6,16 +6,14 @@ import { useRouter } from "next/navigation";
 export default function RegistrationPage() {
     const router = useRouter();
     const [isSignUp, setIsSignUp] = useState(false);
-    const [formData, setFormData] = useState({
+    const [formDatae, setFormData] = useState({
         cpf_admin: "",
-        nome: "",
-        email: "",
         senha: ""
     });
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData({ ...formDatae, [name]: value });
     };
 
     const handleSubmit = async (event: React.FormEvent) => {
@@ -27,7 +25,7 @@ export default function RegistrationPage() {
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify(formData),
+                body: JSON.stringify(formDatae),
             });
 
             if (response.ok) {
@@ -58,19 +56,12 @@ export default function RegistrationPage() {
                     <form id="registrationForm" onSubmit={handleSubmit}>
                         <div style={{ marginBottom: '20px' }}>
                             <label htmlFor="cpf_admin" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>CPF</label>
-                            <input type="text" id="cpf_admin" name="cpf_admin" value={formData.cpf_admin} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                            <input type="text" id="cpf_admin" name="cpf_admin" value={formDatae.cpf_admin} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
                         </div>
-                        <div style={{ marginBottom: '20px' }}>
-                            <label htmlFor="nome" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Nome</label>
-                            <input type="text" id="nome" name="nome" value={formData.nome} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
-                        </div>
-                        <div style={{ marginBottom: '20px' }}>
-                            <label htmlFor="email" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Endereço de email</label>
-                            <input type="email" id="email" name="email" value={formData.email} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
-                        </div>
+                       
                         <div style={{ marginBottom: '20px' }}>
                             <label htmlFor="senha" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Senha</label>
-                            <input type="password" id="senha" name="senha" value={formData.senha} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                            <input type="password" id="senha" name="senha" value={formDatae.senha} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
                         </div>
                         <div style={{ marginBottom: '20px' }}>
                             <input type="checkbox" name="recaptcha" required /> Não sou um robô
@@ -90,11 +81,11 @@ export default function RegistrationPage() {
                     <form id="loginForm" onSubmit={handleSubmit}>
                         <div style={{ marginBottom: '20px' }}>
                             <label htmlFor="cpf_admin" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>CPF</label>
-                            <input type="text" id="cpf_admin" name="cpf_admin" value={formData.cpf_admin} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                            <input type="text" id="cpf_admin" name="cpf_admin" value={formDatae.cpf_admin} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
                         </div>
                         <div style={{ marginBottom: '20px' }}>
                             <label htmlFor="senha" style={{ display: 'block', fontWeight: 'bold', marginBottom: '5px' }}>Senha</label>
-                            <input type="password" id="senha" name="senha" value={formData.senha} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
+                            <input type="password" id="senha" name="senha" value={formDatae.senha} onChange={handleInputChange} required style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }} />
                         </div>
                         <div style={{ marginBottom: '20px' }}>
                             <input type="checkbox" name="recaptcha" required /> Não sou um robô
