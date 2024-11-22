@@ -12,7 +12,7 @@ export default function RegistrationPage() {
         email: "",
         senha: ""
     });
-    const [isLoading, setIsLoading] = useState(false); // Para controlar o estado de carregamento
+    const [isLoading, setIsLoading] = useState(false); 
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -41,7 +41,7 @@ export default function RegistrationPage() {
                 } else {
                     alert("Login realizado com sucesso!");
                 }
-                router.push("/dashboard"); // Redirecionar para a dashboard
+                router.push("/dashboard"); 
             } else {
                 const errorMessage = await response.text();
                 alert(`Erro ao tentar realizar a operação: ${errorMessage}`);
@@ -65,7 +65,7 @@ export default function RegistrationPage() {
                 <p style={{ color: 'black' }}>
                     {isSignUp ? (
                         <>
-                            Já tem uma conta? <a href="#" onClick={toggleSignUp} style={{ color: '#4CAF50' }}>Log in</a>
+                            Já tem uma conta? <a href="#" onClick={toggleSignUp} style={{ color: '#4CAF50' }}>Faça login</a>
                         </>
                     ) : (
                         <>
@@ -82,6 +82,7 @@ export default function RegistrationPage() {
                             name="cpf_admin"
                             value={formData.cpf_admin}
                             onChange={handleInputChange}
+                            placeholder="digite seu cpf no formato xxxxxxxxxxx"
                             required
                             style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
                         />
@@ -96,6 +97,7 @@ export default function RegistrationPage() {
                                     name="nome"
                                     value={formData.nome}
                                     onChange={handleInputChange}
+                                    placeholder="digite seu nome"
                                     required
                                     style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
                                 />
@@ -108,6 +110,7 @@ export default function RegistrationPage() {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleInputChange}
+                                    placeholder="digite seu email"
                                     required
                                     style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
                                 />
@@ -122,6 +125,7 @@ export default function RegistrationPage() {
                             name="senha"
                             value={formData.senha}
                             onChange={handleInputChange}
+                            placeholder="digite sua senha com até 8 digitos"
                             required
                             style={{ width: 'calc(100% - 20px)', padding: '10px', fontSize: '16px', border: '1px solid #ccc', boxShadow: '0 0 5px 2px green', borderRadius: '5px' }}
                         />
