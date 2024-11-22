@@ -27,7 +27,7 @@ export default function Produtos() {
         eletrodomestico: "",
         marca: "",
         eficiencia_energetica: "",
-        consumo_energetico: "",
+        potencia: "",
         cpf_cliente: 0.0,
     })
 

@@ -15,7 +15,7 @@ interface TipoCliente {
 
 export default function EditarExcluirCliente() {
   const navigate = useRouter();
-  const { id } = useParams();
+  const { cpf_cliente } = useParams();
 
   const [cliente, setCliente] = useState<TipoCliente>({
     cpf_cliente: "",
@@ -29,17 +29,17 @@ export default function EditarExcluirCliente() {
   useEffect(() => {
     const chamadaApi = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/smartenergy/cliente/${id}`);
+        const response = await fetch(`http://localhost:8080/smartenergy/cliente/${cpf_cliente}`);
         const data = await response.json();
         setCliente(data);
       } catch (error) {
         console.error("Erro ao buscar cliente", error);
       }
     };
-    if (id) {
+    if (cpf_cliente) {
       chamadaApi();
     }
-  }, [id]);
+  }, [cpf_cliente]);
 
   const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = evento.target;
@@ -49,7 +49,7 @@ export default function EditarExcluirCliente() {
   const handleSubmit = async (evento: React.FormEvent<HTMLFormElement>) => {
     evento.preventDefault();
     try {
-      const response = await fetch(`http://localhost:8080/smartenergy/cliente/${id}`, {
+      const response = await fetch(`http://localhost:8080/smartenergy/cliente/${cpf_cliente}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ export default function EditarExcluirCliente() {
 
   const handleDelete = async () => {
     try {
-      const response = await fetch(`http://localhost:8080/smartenergy/cliente/${id}`, {
+      const response = await fetch(`http://localhost:8080/smartenergy/cliente/${cpf_cliente}`, {
         method: "DELETE",
       });
 

@@ -2,6 +2,8 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { CiEdit } from "react-icons/ci";
+import { FaTrash } from "react-icons/fa6";
 
 interface TipoCliente {
   cpf_cliente: string;
@@ -18,7 +20,7 @@ export default function Clientes() {
   const [clientes, setClientes] = useState<TipoCliente[]>([]);
   const chamadaApi = async () => {
     try {
-      const response = await fetch(" http://localhost:8080/smartenergy/cliente"); // Adicione a URL correta da API aqui.
+      const response = await fetch(" http://localhost:8080/smartenergy/cliente"); 
       const data = await response.json();
       setClientes(data);
     } catch (error) {
@@ -94,7 +96,7 @@ export default function Clientes() {
               id="idCpf"
               value={cliente.cpf_cliente}
               onChange={(evento) => handleChange(evento)}
-              placeholder="Digite o CPF"
+              placeholder="Digite o CPF no formato xxxxxxxxxxx"
               required
               style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
             />
@@ -154,7 +156,7 @@ export default function Clientes() {
               id="idTelefone"
               value={cliente.telefone}
               onChange={(evento) => handleChange(evento)}
-              placeholder="Digite o telefone"
+              placeholder="Digite o telefone com ddd no formato 11111111111"
               required
               style={{ padding: "10px", fontSize: "1rem", width: "100%", borderRadius: "5px", border: "1px solid #ccc" }}
             />
@@ -208,7 +210,7 @@ export default function Clientes() {
                   <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.telefone}</td>
                   <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>{c.data_nasc}</td>
                   <td style={{ padding: "15px", borderBottom: "1px solid #ddd" }}>
-                    <Link href="/">Editar</Link> | <Link href="/">Excluir</Link>
+                    <Link href="./[id]"><CiEdit /></Link> | <Link href="/"><FaTrash /></Link>
                   </td>
                 </tr>
               ))}
