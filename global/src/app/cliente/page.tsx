@@ -51,7 +51,7 @@ export default function Clientes() {
     evento.preventDefault();
 
     try {
-      const response = await fetch("/api/clientes", {
+      const response = await fetch("http://localhost:8080/smartenergy/cliente", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
