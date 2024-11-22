@@ -19,8 +19,10 @@ Instruções: Para utilizar a API de Java, é necessário rodar o projeto no arq
 
 Link:https://global-solution-hy5g.vercel.app/
 
-# Vídeo do Pitch
+# Repositorio
+https://github.com/gustavoreislima13/global-solution
 
+# Vídeo do Pitch
 
 Assista ao nosso pitch aqui: https://youtu.be/hxqYGu18iRg?si=HzOp9oL156DerNWi
 ---
