@@ -61,7 +61,7 @@ export default function Exemplo() {
             Relatórios de dispositivos eletrônicos.
           </h3>
           <a
-            href="/relatorios"
+            href='/relatorio'
             className="mt-4 inline-block bg-green-700 text-white py-2 px-4 rounded hover:bg-green-800"
           >
             Ver Relatórios
