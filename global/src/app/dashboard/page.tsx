@@ -131,14 +131,10 @@ export default function Exemplo() {
           Dicas para <span style={{ color: '#008000' }}>Reduzir o Gasto Energético</span>
         </h2>
         <ul style={{ fontSize: '1.5rem', lineHeight: '1.6', color: '#333' }}>
-          <li>Desligue os aparelhos eletrônicos da tomada quando não estiverem em uso, evitando o consumo em modo stand-by.</li>
-          <li>Substitua lâmpadas incandescentes por lâmpadas LED, que são mais eficientes e duram mais.</li>
-          <li>Evite deixar portas e janelas abertas ao utilizar o ar-condicionado para evitar perda de energia.</li>
-          <li>Use eletrodomésticos como máquina de lavar e ferro de passar roupas em horários de tarifa reduzida, se possível.</li>
-          <li>Desligue as luzes ao sair dos ambientes e aproveite ao máximo a luz natural.</li>
-          <li>Utilize eletrodomésticos com selo de eficiência energética, que garantem um consumo menor.</li>
-          <li>Mantenha geladeiras e freezers em locais ventilados e evite deixá-los próximos ao fogão ou em áreas muito quentes.</li>
-          <li>Regule o termostato da geladeira de acordo com a temperatura recomendada pelo fabricante.</li>
+          <li>Este mês, notamos que o consumo de energia aumentou em 12%. Avalie o uso dos equipamentos e veja se há possibilidade de reduzir o consumo.</li>
+          <li>O ar-condicionado tem contribuído bastante para o aumento no seu consumo. Mantenha a temperatura em 24ºC e desligue-o quando não estiver em uso para economizar.</li>
+          <li>A análise dos últimos meses mostra que pequenos ajustes, como apagar luzes em áreas comuns quando não utilizadas, podem reduzir a conta de energia em até 20%.</li>
+          
         </ul>
       </section>
     </div>
