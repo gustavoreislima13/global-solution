@@ -109,7 +109,7 @@ export default function Produtos() {
                     </div>
                     <div style={{ marginBottom: '20px' }}>
                         <label htmlFor="idCs" style={{ fontSize: '1.25rem', color: '#000', display: 'block', marginBottom: '5px' }}>Potencia</label>
-                        <input type="number" name="consumo_energetico" id="idCs" value={produto.potencia} onChange={(evento) => handleChange(evento)} placeholder="Digite a potencia" required
+                        <input type="number" name="potencia" id="idP" value={produto.potencia} onChange={(evento) => handleChange(evento)} placeholder="Digite a potencia" required
                             style={{ padding: '10px', fontSize: '1rem', width: '100%', borderRadius: '5px', border: '1px solid #ccc' }} />
                     </div>
                     <div style={{ marginBottom: '20px' }}>
