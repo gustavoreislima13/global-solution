@@ -3,7 +3,14 @@
 Este projeto é um **Frontend** desenvolvido com **Next.js** e **TypeScript**, projetado para consumir e integrar APIs criadas no backend. O sistema é uma solução abrangente que utiliza as melhores práticas de desenvolvimento, garantindo integração fluida com os endpoints desenvolvidos em **Java**.
 
 
-Vídeo do Pitch
+# Integrantes do grupo
+
+Leonardo Oliveira Iafrate da Fosneca - RM556857
+Julia Brito Ricardo - RM558831
+Gustavo Lima Reis - RM555672
+
+
+# Vídeo do Pitch
 
 
 Assista ao nosso pitch aqui:  https://youtu.be/hxqYGu18iRg
