@@ -1,148 +1,174 @@
 'use client';
 
-import { TipoProdulto } from "@/types/types";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
-import Link from "next/link";
+import { useParams } from "next/navigation";
+import '@/app/globals.css';
 
-export default function Produtos() {
+interface TipoProduto {
+  id_eletro: string;
+  eletrodomestico: string;
+  marca: string;
+  eficiencia_energetica: string;
+  potencia: string;
+  cpf_cliente: number;
+}
 
-    const navigate = useRouter();
+export default function EditarExcluirProduto() {
+  const navigate = useRouter();
+  const { id_eletro } = useParams();
 
-    const [produtos, setProdutos] = useState<TipoProdulto[]>([]);
+  const [produto, setProduto] = useState<TipoProduto>({
+    id_eletro: "",
+    eletrodomestico: "",
+    marca: "",
+    eficiencia_energetica: "",
+    potencia: "",
+    cpf_cliente: 0.0,
+  });
+
+  useEffect(() => {
     const chamadaApi = async () => {
-        try {
-            const response = await fetch("http://localhost:8080/smartenergy/eletro"); // Adicione a URL correta da API aqui.
-            const data = await response.json();
-            setProdutos(data);
-        } catch (error) {
-            console.error("Falha na listagem");
-        }
+      try {
+        const response = await fetch(`http://localhost:8080/smartenergy/eletro/${id_eletro}`);
+        const data = await response.json();
+        setProduto(data);
+      } catch (error) {
+        console.error("Erro ao buscar produto", error);
+      }
     };
+    if (id_eletro) {
+      chamadaApi();
+    }
+  }, [id_eletro]);
 
-    useEffect(() => {
-        chamadaApi();
-    }, []);
+  const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = evento.target;
+    setProduto({ ...produto, [name]: value });
+  };
 
-    const [produto, setProduto] = useState<TipoProdulto>({
-        id_eletro:"",
-        eletrodomestico: "",
-        marca: "",
-        eficiencia_energetica: "",
-        potencia: "",
-        cpf_cliente: 0.0,
-    });
+  const handleSubmit = async (evento: React.FormEvent<HTMLFormElement>) => {
+    evento.preventDefault();
+    try {
+      const response = await fetch(`http://localhost:8080/smartenergy/eletro/${id_eletro}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(produto),
+      });
 
-    const handleChange = (evento: React.ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = evento.target;
-        setProduto({ ...produto, [name]: value });
-    };
+      if (response.ok) {
+        alert("Produto atualizado com sucesso!");
+        navigate.push("/");
+      }
+    } catch (erro) {
+      console.error("Falha ao atualizar produto", erro);
+    }
+  };
 
-    const handleSubmit = async (evento: React.FormEvent<HTMLFormElement>) => {
-        evento.preventDefault();
+  const handleDelete = async () => {
+    try {
+      const response = await fetch(`http://localhost:8080/smartenergy/eletro/${id_eletro}`, {
+        method: "DELETE",
+      });
 
-        try {
-            const response = await fetch("http://localhost:8080/smartenergy/eletro", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify(produto)
-            });
+      if (response.ok) {
+        alert("Produto excluído com sucesso!");
+        navigate.push("/");
+      }
+    } catch (erro) {
+      console.error("Falha ao excluir produto", erro);
+    }
+  };
 
-            if (response.ok) {
-                alert("Produto cadastrado!");
-                setProduto({
-                    id_eletro:"",
-                    eletrodomestico: "",
-                    marca: "",
-                    eficiencia_energetica: "",
-                    potencia: "",
-                    cpf_cliente: 0.0,
-                });
-
-                navigate.push("/dashboard");
-            }
-
-        } catch (erro) {
-            console.error("Falha", erro);
-        }
-    };
-
-    return (
-        <div className="p-12 bg-white">
-            <h1 className="text-5xl font-bold text-black mb-8">Produtos</h1>
-            <div className="bg-white p-10 shadow-md rounded-lg">
-                <h2 className="text-4xl font-bold text-black mb-5">Cadastro de Produtos</h2>
-                <form onSubmit={handleSubmit}>
-                    <div className="mb-5">
-                        <label htmlFor="idNn" className="text-xl text-black block mb-2">Eletrodoméstico</label>
-                        <input type="text" name="eletrodomestico" id="idNn" value={produto.eletrodomestico}
-                            onChange={(evento) => handleChange(evento)} placeholder="Digite o eletrodoméstico" required
-                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
-                    </div>
-                    <div className="mb-5">
-                        <label htmlFor="idMa" className="text-xl text-black block mb-2">Marca</label>
-                        <input type="text" name="marca" id="idMa" value={produto.marca} onChange={(evento) => handleChange(evento)} placeholder="Digite a marca" required
-                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
-                    </div>
-                    <div className="mb-5">
-                        <label htmlFor="idEf" className="text-xl text-black block mb-2">Eficiência energética</label>
-                        <input type="text" name="eficiencia_energetica" id="idEf" value={produto.eficiencia_energetica} onChange={(evento) => handleChange(evento)} placeholder="Digite a eficiência energética" required
-                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
-                    </div>
-                    <div className="mb-5">
-                        <label htmlFor="idCs" className="text-xl text-black block mb-2">Potência</label>
-                        <input type="number" name="consumo_energetico" id="idCs" value={produto.potencia} onChange={(evento) => handleChange(evento)} placeholder="Digite a potência" required
-                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
-                    </div>
-                    <div className="mb-5">
-                        <label htmlFor="idCpf" className="text-xl text-black block mb-2">CPF</label>
-                        <input type="number" name="cpf_cliente" id="idCpf" value={produto.cpf_cliente} onChange={(evento) => handleChange(evento)} placeholder="Digite o CPF do cliente" required
-                            className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600" />
-                    </div>
-                    <div className="text-right">
-                        <button type="submit"
-                            className="bg-green-600 text-white text-xl font-bold p-4 rounded-lg cursor-pointer hover:bg-green-700">
-                            Cadastrar
-                        </button>
-                    </div>
-                </form>
-            </div>
-            <h2 className="text-4xl font-bold text-black mt-12">Listagem de Produtos</h2>
-            <div className="overflow-x-auto mt-5">
-                <table className="w-full border-collapse">
-                    <thead>
-                        <tr className="bg-gray-200">
-                            <th className="p-4 border-b text-xl text-left">Eletrodoméstico</th>
-                            <th className="p-4 border-b text-xl text-left">Marca</th>
-                            <th className="p-4 border-b text-xl text-left">Eficiência energética</th>
-                            <th className="p-4 border-b text-xl text-left">Consumo energético</th>
-                            <th className="p-4 border-b text-xl text-left">CPF</th>
-                            <th className="p-4 border-b text-xl text-left">Editar | Excluir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {
-                            produtos.length > 0 && produtos.map(p => (
-                                <tr key={p.cpf_cliente}>
-                                    <td className="p-4 border-b">{p.eletrodomestico}</td>
-                                    <td className="p-4 border-b">{p.marca}</td>
-                                    <td className="p-4 border-b">{p.eficiencia_energetica}</td>
-                                    <td className="p-4 border-b">{p.potencia}</td>
-                                    <td className="p-4 border-b">{p.cpf_cliente}</td>
-                                    <td className="p-4 border-b"><Link href="/">Editar</Link> | <Link href="/">Excluir</Link></td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                    <tfoot>
-                        <tr>
-                            <td colSpan={6} className="p-4 text-right font-bold">Total de informações: {produtos.length}</td>
-                        </tr>
-                    </tfoot>
-                </table>
-            </div>
-        </div>
-    );
+  return (
+    <div className="p-12 bg-white">
+      <h1 className="text-5xl font-bold text-black mb-8">Editar Produto</h1>
+      <div className="bg-white p-10 shadow-md rounded-lg">
+        <form onSubmit={handleSubmit}>
+          <div className="mb-5">
+            <label htmlFor="idEletrodomestico" className="text-xl text-black block mb-2">Eletrodoméstico</label>
+            <input
+              type="text"
+              name="eletrodomestico"
+              id="idEletrodomestico"
+              value={produto.eletrodomestico}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite o nome do eletrodoméstico"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="idMarca" className="text-xl text-black block mb-2">Marca</label>
+            <input
+              type="text"
+              name="marca"
+              id="idMarca"
+              value={produto.marca}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite a marca do produto"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="idEficienciaEnergetica" className="text-xl text-black block mb-2">Eficiência Energética</label>
+            <input
+              type="text"
+              name="eficiencia_energetica"
+              id="idEficienciaEnergetica"
+              value={produto.eficiencia_energetica}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite a eficiência energética"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="idPotencia" className="text-xl text-black block mb-2">Potência</label>
+            <input
+              type="text"
+              name="potencia"
+              id="idPotencia"
+              value={produto.potencia}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite a potência do produto"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="idCpfCliente" className="text-xl text-black block mb-2">CPF do Cliente</label>
+            <input
+              type="number"
+              name="cpf_cliente"
+              id="idCpfCliente"
+              value={produto.cpf_cliente}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite o CPF do cliente"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
+          <div className="text-right">
+            <button
+              type="submit"
+              className="bg-green-600 text-white text-xl font-bold p-4 rounded-lg mr-4 cursor-pointer hover:bg-green-700"
+            >
+              Atualizar
+            </button>
+            <button
+              type="button"
+              onClick={handleDelete}
+              className="bg-red-600 text-white text-xl font-bold p-4 rounded-lg cursor-pointer hover:bg-red-700"
+            >
+              Excluir
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  );
 }
