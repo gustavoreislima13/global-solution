@@ -15,6 +15,9 @@ Gustavo Lima Reis - RM555672
 link do projeto java: https://github.com/britojulia/SmartEnergy-Java
 Instruções: Para utilizar a API de Java, é necessário rodar o projeto no arquivo main e acessar o localhost com /smartenergy/admin
 
+# Vercel
+
+Link:https://global-solution-hy5g.vercel.app/
 
 # Vídeo do Pitch
 
