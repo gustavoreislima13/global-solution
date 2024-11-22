@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useParams } from "next/navigation";
+import '@/app/globals.css';
 
 interface TipoCliente {
   cpf_cliente: string;
@@ -113,6 +114,44 @@ export default function EditarExcluirCliente() {
             />
           </div>
           {/* Outros campos de cliente aqui */}
+          <div className="mb-5">
+            <label htmlFor="idEndereco" className="text-xl text-black block mb-2">Endereço</label>
+            <input
+              type="text"
+              name="endereco"
+              id="idEndereco"
+              value={cliente.endereco}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite o endereço"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="idTelefone" className="text-xl text-black block mb-2">Telefone</label>
+            <input
+              type="text"
+              name="telefone"
+              id="idTelefone"
+              value={cliente.telefone}
+              onChange={(evento) => handleChange(evento)}
+              placeholder="Digite o telefone"
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
+          <div className="mb-5">
+            <label htmlFor="idDataNasc" className="text-xl text-black block mb-2">Data de Nascimento</label>
+            <input
+              type="date"
+              name="data_nasc"
+              id="idDataNasc"
+              value={cliente.data_nasc}
+              onChange={(evento) => handleChange(evento)}
+              required
+              className="w-full p-3 text-lg border border-gray-300 rounded-lg shadow-md focus:outline-none focus:ring focus:border-green-600"
+            />
+          </div>
           <div className="text-right">
             <button
               type="submit"
