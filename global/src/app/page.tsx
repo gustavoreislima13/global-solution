@@ -14,15 +14,16 @@ const DigitalProductDesignAgency: React.FC = () => {
 
   return (
     <div className="p-12 bg-white">
-      <section className="flex flex-col md:flex-row justify-between items-center h-screen flex-wrap">
-        <div className="max-w-lg text-left">
+      <section className="flex flex-col md:flex-row justify-center items-center h-screen relative">
+
+        <div className="max-w-lg text-center md:text-left relative z-10">
           <h1 className="text-5xl font-bold leading-tight text-black">
             Revolucionando <span className="text-green-600">o consumo </span>de energia!
           </h1>
           <p className="text-xl text-black mt-5">
             Com nossas ferramentas inteligentes, fornecemos insights valiosos que ajudam a reduzir custos e promover práticas ecológicas, trazendo maior controle e visibilidade sobre o uso de energia elétrica.
           </p>
-          <div className="mt-5 space-x-4">
+          <div className="mt-5 space-x-4 flex justify-center md:justify-start">
             <button
               className="py-3 px-6 text-lg font-bold bg-green-600 text-white border-2 border-green-600 rounded-full shadow-md transition-transform transform hover:scale-105"
               onClick={() => window.location.href = "/login#"}
@@ -37,8 +38,12 @@ const DigitalProductDesignAgency: React.FC = () => {
             </button>
           </div>
         </div>
-        <div className="w-full max-w-2xl mt-10 md:mt-0">
-          <Image src={imagem1} alt="Imagem inicial" className="w-full h-auto" />
+
+        <div className="w-full max-w-2xl mt-50 md:mt-0 relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-l from-green-800 to-white opacity-90 rounded-tl-full rounded-br-full transform scale-80 z-0"></div>
+          <div className="flex justify-center items-center w-full h-full relative z-10">
+            <Image src={imagem1} alt="Imagem inicial" className="w-1/2 h-auto" />
+          </div>
         </div>
       </section>
 
@@ -115,22 +120,22 @@ const DigitalProductDesignAgency: React.FC = () => {
       <section className="py-20 px-5 flex flex-col gap-10">
         <div className="flex flex-col md:flex-row items-center gap-10 flex-wrap">
           <div className="w-full max-w-xs">
-            <Image src={redonda} alt="Cover Your Everyday Expenses" className="w-full h-auto rounded-full" />
+            <Image src={redonda} alt="Cover Your Everyday Expenses" className="w-full h-auto rounded-full mx-auto" />
           </div>
           <div className="max-w-lg">
-            <h3 className="text-2xl font-bold mb-3 text-black">Redução de Custos</h3>
-            <p className="text-xl text-black">
+            <h3 className="text-2xl font-bold mb-3 text-black text-center md:text-left">Redução de Custos</h3>
+            <p className="text-xl text-black text-center md:text-left">
               Com o Smart Energy, você terá controle total sobre o seu consumo de energia, permitindo identificar oportunidades para reduzir gastos de forma significativa. Nossas ferramentas ajudam a monitorar e entender os padrões de consumo, possibilitando ajustes que se traduzem em economia real para o seu negócio ou residência.
             </p>
           </div>
         </div>
         <div className="flex flex-col md:flex-row-reverse items-center gap-10 flex-wrap">
           <div className="w-full max-w-xs">
-            <Image src={redonda01} alt="We Offer Low Fees That Are Transparent" className="w-full h-auto rounded-full" />
+            <Image src={redonda01} alt="We Offer Low Fees That Are Transparent" className="w-full h-auto rounded-full mx-auto" />
           </div>
           <div className="max-w-lg">
-            <h3 className="text-2xl font-bold mb-3 text-black">Transparência</h3>
-            <p className="text-xl text-black">
+            <h3 className="text-2xl font-bold mb-3 text-black text-center md:text-left">Transparência</h3>
+            <p className="text-xl text-black text-center md:text-left">
               Nossa plataforma foi projetada para ser intuitiva e fácil de usar, garantindo que você tenha total clareza sobre como a energia está sendo consumida. Fornecemos relatórios detalhados e informações acessíveis, permitindo que você entenda e gerencie seu consumo com total transparência e confiança.
             </p>
           </div>
