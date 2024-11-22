@@ -4,6 +4,8 @@ Este projeto é um **Frontend** desenvolvido com **Next.js** e **TypeScript**, p
 
 
 Vídeo do Pitch
+
+
 Assista ao nosso pitch aqui:  https://youtu.be/hxqYGu18iRg
 ---
 
