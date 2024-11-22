@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect } from 'react';
 import Image from 'next/image';
-import imagem1 from "@/img/01.png";
+import imagem1 from "@/img/logo.png";
 import redonda from "@/img/imagem_2.png";
 import redonda01 from "@/img/imagem_3.png";
 import { MdVerified } from "react-icons/md";
@@ -47,7 +47,7 @@ const DigitalProductDesignAgency: React.FC = () => {
             }}
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={() => window.location.href = "/login"}
+            onClick={() => window.location.href = "/login#"}
           >
             Cadastre-se
           </button>
@@ -67,14 +67,13 @@ const DigitalProductDesignAgency: React.FC = () => {
             }}
             onMouseEnter={e => e.currentTarget.style.transform = 'scale(1.05)'}
             onMouseLeave={e => e.currentTarget.style.transform = 'scale(1)'}
-            onClick={() => window.location.href = "#"}
+            onClick={() => window.location.href = "/login"}
           >
             Login
           </button>
         </div>
         <div style={{ width: '100%', maxWidth: '600px' }}>
           <Image src={imagem1} alt="Imagem inicial" style={{ width: '100%', height: 'auto', borderRadius: '0%' }} />
-          
         </div>
       </section>
 

@@ -1,10 +1,9 @@
-import Link from 'next/link';
 import Image from 'next/image';
 import facebook from '@/img/facebook.png';
 import instagram from '@/img/instagram.png';
 import twitterx from '@/img/twitterx.png';
 
-export default function Menu() {
+export default function Rodape() {
   return (
     <>
       <nav style={{ backgroundColor: '#fff', padding: '20px 10%' }}>

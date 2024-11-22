@@ -1,25 +1,24 @@
-import Link from 'next/link';
+import Link from "next/link";
+import { MdOutlineSpaceDashboard } from "react-icons/md";
+import { FaCalculator } from "react-icons/fa6";
+import { HiOutlineDocumentText } from "react-icons/hi2";
 
 export default function Menu() {
   return (
     <nav style={{ backgroundColor: '#fff', padding: '20px 10%' }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-        <a style={{ textDecoration: 'none', color: '#000', fontSize: '2rem', fontWeight: 'bold' }}>
-          Smart Energy
-        </a>
-        <div style={{ display: 'flex', gap: '30px' }}>
-          <Link href="/" legacyBehavior>
-            <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}>Home</a>
-          </Link>
-          <Link href="/integrantes" legacyBehavior>
-            <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}>Integrantes</a>
-          </Link>
-          <Link href="/login" legacyBehavior>
-            <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}>Login</a>
-          </Link>
-          
-        </div>
-      </div>
-    </nav>
+      <div style={{ display: 'flex', gap: '30px' }}>
+      <Link href="/" legacyBehavior>
+          <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}><MdOutlineSpaceDashboard />Dashboard</a>
+      </Link>
+      <Link href="/" legacyBehavior>
+          <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}><FaCalculator />Calcular Consumo</a>
+      </Link>
+      <Link href="/" legacyBehavior>
+          <a style={{ color: '#008000', textDecoration: 'none', fontSize: '1.25rem', fontWeight: 'bold' }}><HiOutlineDocumentText />Relatórios</a>
+      </Link>
+    </div>
+  </div>
+</nav>
   );
 }
